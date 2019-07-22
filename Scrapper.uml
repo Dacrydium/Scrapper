@@ -5,8 +5,170 @@
       <contents xmi:type="ecore:EAnnotation" xmi:id="_Z3ABwaxHEema0ZeEZICWvw" source="codegen">
         <details xmi:id="_Z3ABwqxHEema0ZeEZICWvw" key="codegenDirectory" value="/Scrapper/src"/>
         <details xmi:id="_Z3M2EKxHEema0ZeEZICWvw" key="observedFolders" value="/Scrapper/src"/>
+        <details xmi:id="_WY1cUKxIEema0ZeEZICWvw" key="AssociatedSourceCode" value="/Scrapper/src/SiteWeb.java;354024230/1;/Scrapper/src/Rubrique.java;3414826132/1;/Scrapper/src/Annonce.java;3333467929/1;/Scrapper/src/ScrapperInterface.java;2722733723/1;/Scrapper/src/Recherche.java;3566819182/1;/Scrapper/src/RechercheAvancee.java;684322952/1;/Scrapper/src/RechercheSimple.java;850759238/1;/Scrapper/src/Utilisateur.java;849284765/1;/Scrapper/src/Bookmark.java;2937428546/1;"/>
       </contents>
     </eAnnotations>
+    <elementImport xmi:id="_iFfwYKxLEema0ZeEZICWvw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+    </elementImport>
+    <elementImport xmi:id="_iFfwYaxLEema0ZeEZICWvw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#byte"/>
+    </elementImport>
+    <elementImport xmi:id="_iFfwYqxLEema0ZeEZICWvw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#char"/>
+    </elementImport>
+    <elementImport xmi:id="_iFfwY6xLEema0ZeEZICWvw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+    </elementImport>
+    <elementImport xmi:id="_iFgXcKxLEema0ZeEZICWvw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+    </elementImport>
+    <elementImport xmi:id="_iFgXcaxLEema0ZeEZICWvw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </elementImport>
+    <elementImport xmi:id="_iFgXcqxLEema0ZeEZICWvw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+    </elementImport>
+    <elementImport xmi:id="_iFgXc6xLEema0ZeEZICWvw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#short"/>
+    </elementImport>
+    <elementImport xmi:id="_iIFKUKxLEema0ZeEZICWvw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </elementImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_54RpEKxLEema0ZeEZICWvw" name="java">
+      <packagedElement xmi:type="uml:Package" xmi:id="_54RpEaxLEema0ZeEZICWvw" name="util">
+        <packagedElement xmi:type="uml:Interface" xmi:id="_54cBIKxLEema0ZeEZICWvw" name="Set"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_54dPQaxLEema0ZeEZICWvw" name="HashSet"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_54RpEqxLEema0ZeEZICWvw" name="time">
+        <packagedElement xmi:type="uml:Class" xmi:id="_CJf4YKxMEema0ZeEZICWvw" name="LocalDate"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_EfKsEKxIEema0ZeEZICWvw" name="SiteWeb">
+      <ownedAttribute xmi:id="_0cbLw6xIEema0ZeEZICWvw" name="rubrique" type="_FA-YoKxIEema0ZeEZICWvw" aggregation="composite" association="_0caksKxIEema0ZeEZICWvw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0cby0KxIEema0ZeEZICWvw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0cby0axIEema0ZeEZICWvw" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_HXo4kaxJEema0ZeEZICWvw" name="scrapperInterface" type="_F2u78KxIEema0ZeEZICWvw" association="_HXo4kKxJEema0ZeEZICWvw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HXpfoKxJEema0ZeEZICWvw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HXpfoaxJEema0ZeEZICWvw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_jUmAwKxLEema0ZeEZICWvw" name="url">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FA-YoKxIEema0ZeEZICWvw" name="Rubrique">
+      <ownedAttribute xmi:id="_0cbLwKxIEema0ZeEZICWvw" name="siteWeb" type="_EfKsEKxIEema0ZeEZICWvw" association="_0caksKxIEema0ZeEZICWvw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0cbLwaxIEema0ZeEZICWvw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0cbLwqxIEema0ZeEZICWvw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_8IEBwqxIEema0ZeEZICWvw" name="annonce" type="_FYNz8KxIEema0ZeEZICWvw" aggregation="shared" association="_8IDasKxIEema0ZeEZICWvw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8IEBw6xIEema0ZeEZICWvw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8IEBxKxIEema0ZeEZICWvw" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_T3wxQKxJEema0ZeEZICWvw" name="recherche" type="_GHeGoKxIEema0ZeEZICWvw" association="_T3wKMKxJEema0ZeEZICWvw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_T3wxQaxJEema0ZeEZICWvw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_T3wxQqxJEema0ZeEZICWvw" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_pipecKxLEema0ZeEZICWvw" name="url">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_nVFlQKxMEema0ZeEZICWvw" name="dateLastUpdate" type="_CJf4YKxMEema0ZeEZICWvw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FYNz8KxIEema0ZeEZICWvw" name="Annonce">
+      <ownedAttribute xmi:id="_8IDasaxIEema0ZeEZICWvw" name="rubrique" type="_FA-YoKxIEema0ZeEZICWvw" association="_8IDasKxIEema0ZeEZICWvw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8IEBwKxIEema0ZeEZICWvw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8IEBwaxIEema0ZeEZICWvw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_W_eJEaxJEema0ZeEZICWvw" name="bookmark" type="_IJY7EKxIEema0ZeEZICWvw" association="_W_eJEKxJEema0ZeEZICWvw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_W_eJEqxJEema0ZeEZICWvw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_W_eJE6xJEema0ZeEZICWvw" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_zI8_cKxNEema0ZeEZICWvw" name="titre">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_1tQvQKxNEema0ZeEZICWvw" name="datePublication" type="_CJf4YKxMEema0ZeEZICWvw"/>
+      <ownedAttribute xmi:id="_4I7gcKxNEema0ZeEZICWvw" name="description">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_F2u78KxIEema0ZeEZICWvw" name="ScrapperInterface">
+      <ownedAttribute xmi:id="_HXpfoqxJEema0ZeEZICWvw" name="siteWeb" type="_EfKsEKxIEema0ZeEZICWvw" association="_HXo4kKxJEema0ZeEZICWvw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HXpfo6xJEema0ZeEZICWvw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HXpfpKxJEema0ZeEZICWvw" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_KbRosKxJEema0ZeEZICWvw" name="utilisateur" type="_H2UOEKxIEema0ZeEZICWvw" association="_KbRBoKxJEema0ZeEZICWvw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KbRosaxJEema0ZeEZICWvw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KbRosqxJEema0ZeEZICWvw" value="*"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_R8nPAKxQEema0ZeEZICWvw" name="addWebsite">
+        <ownedParameter xmi:id="_R8nPAaxQEema0ZeEZICWvw" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_GHeGoKxIEema0ZeEZICWvw" name="Recherche">
+      <ownedAttribute xmi:id="_Q262caxJEema0ZeEZICWvw" name="utilisateur" type="_H2UOEKxIEema0ZeEZICWvw" association="_Q262cKxJEema0ZeEZICWvw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Q262cqxJEema0ZeEZICWvw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Q262c6xJEema0ZeEZICWvw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_T3wxQ6xJEema0ZeEZICWvw" name="rubrique" type="_FA-YoKxIEema0ZeEZICWvw" association="_T3wKMKxJEema0ZeEZICWvw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_T3wxRKxJEema0ZeEZICWvw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_T3wxRaxJEema0ZeEZICWvw" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Q6tYAKxOEema0ZeEZICWvw" name="id">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_VbCIkKxOEema0ZeEZICWvw" name="keywords">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_GoHVkKxIEema0ZeEZICWvw" name="RechercheAvancee">
+      <generalization xmi:id="_ghS6EKxIEema0ZeEZICWvw" general="_GHeGoKxIEema0ZeEZICWvw"/>
+      <ownedAttribute xmi:id="_ElU6QKxPEema0ZeEZICWvw" name="prixMin">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_F0e1AKxPEema0ZeEZICWvw" name="prixMax">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_HC1isKxIEema0ZeEZICWvw" name="RechercheSimple">
+      <generalization xmi:id="_jtPRoKxIEema0ZeEZICWvw" general="_GHeGoKxIEema0ZeEZICWvw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_H2UOEKxIEema0ZeEZICWvw" name="Utilisateur">
+      <ownedAttribute xmi:id="_KbRos6xJEema0ZeEZICWvw" name="scrapperInterface" type="_F2u78KxIEema0ZeEZICWvw" association="_KbRBoKxJEema0ZeEZICWvw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KbRotKxJEema0ZeEZICWvw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KbRotaxJEema0ZeEZICWvw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_NWD-1KxJEema0ZeEZICWvw" name="bookmark" type="_IJY7EKxIEema0ZeEZICWvw" association="_NWD-0KxJEema0ZeEZICWvw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NWD-1axJEema0ZeEZICWvw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NWD-1qxJEema0ZeEZICWvw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Q262dKxJEema0ZeEZICWvw" name="recherche" type="_GHeGoKxIEema0ZeEZICWvw" association="_Q262cKxJEema0ZeEZICWvw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Q27dgKxJEema0ZeEZICWvw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Q27dgaxJEema0ZeEZICWvw" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_IJY7EKxIEema0ZeEZICWvw" name="Bookmark">
+      <ownedAttribute xmi:id="_NWD-0axJEema0ZeEZICWvw" name="utilisateur" type="_H2UOEKxIEema0ZeEZICWvw" association="_NWD-0KxJEema0ZeEZICWvw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NWD-0qxJEema0ZeEZICWvw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NWD-06xJEema0ZeEZICWvw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_W_ewIKxJEema0ZeEZICWvw" name="annonce" type="_FYNz8KxIEema0ZeEZICWvw" aggregation="shared" association="_W_eJEKxJEema0ZeEZICWvw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_W_ewIaxJEema0ZeEZICWvw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_W_ewIqxJEema0ZeEZICWvw" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_0caksKxIEema0ZeEZICWvw" name="contient des" memberEnd="_0cbLwKxIEema0ZeEZICWvw _0cbLw6xIEema0ZeEZICWvw"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_8IDasKxIEema0ZeEZICWvw" name="" memberEnd="_8IDasaxIEema0ZeEZICWvw _8IEBwqxIEema0ZeEZICWvw"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_HXo4kKxJEema0ZeEZICWvw" name="enregistre" memberEnd="_HXo4kaxJEema0ZeEZICWvw _HXpfoqxJEema0ZeEZICWvw"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_KbRBoKxJEema0ZeEZICWvw" name="est associé" memberEnd="_KbRosKxJEema0ZeEZICWvw _KbRos6xJEema0ZeEZICWvw"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_NWD-0KxJEema0ZeEZICWvw" name="" memberEnd="_NWD-0axJEema0ZeEZICWvw _NWD-1KxJEema0ZeEZICWvw"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_Q262cKxJEema0ZeEZICWvw" name="fait des" memberEnd="_Q262caxJEema0ZeEZICWvw _Q262dKxJEema0ZeEZICWvw"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_T3wKMKxJEema0ZeEZICWvw" name="fait dans" memberEnd="_T3wxQKxJEema0ZeEZICWvw _T3wxQ6xJEema0ZeEZICWvw"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_W_eJEKxJEema0ZeEZICWvw" name="" memberEnd="_W_eJEaxJEema0ZeEZICWvw _W_ewIKxJEema0ZeEZICWvw"/>
+    <packagedElement xmi:type="uml:DataType" xmi:id="_98MKcKxLEema0ZeEZICWvw" name="LocalDate"/>
+    <packagedElement xmi:type="uml:DataType" xmi:id="_ElU6QaxPEema0ZeEZICWvw" name="Int"/>
     <profileApplication xmi:id="_Z3CeAKxHEema0ZeEZICWvw">
       <eAnnotations xmi:id="_Z3FhUKxHEema0ZeEZICWvw" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile"/>
@@ -17,4 +179,10 @@
   <UMLLabProfile:TargetLanguage xmi:id="_Z3JywKxHEema0ZeEZICWvw" base_Package="_Zy9PQKxHEema0ZeEZICWvw">
     <languageName>java</languageName>
   </UMLLabProfile:TargetLanguage>
+  <UMLLabProfile:Reference xmi:id="_54dPQKxLEema0ZeEZICWvw" base_Element="_54cBIKxLEema0ZeEZICWvw"/>
+  <UMLLabProfile:Reference xmi:id="_54edYKxLEema0ZeEZICWvw" base_Element="_54dPQaxLEema0ZeEZICWvw"/>
+  <UMLLabProfile:UnresolvedElement xmi:id="_98MxgKxLEema0ZeEZICWvw" base_Element="_98MKcKxLEema0ZeEZICWvw"/>
+  <UMLLabProfile:Reference xmi:id="_CJhGgKxMEema0ZeEZICWvw" base_Element="_CJf4YKxMEema0ZeEZICWvw"/>
+  <UMLLabProfile:UnresolvedElement xmi:id="_ElVhUKxPEema0ZeEZICWvw" base_Element="_ElU6QaxPEema0ZeEZICWvw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_iB-wEKxQEema0ZeEZICWvw" base_Element="_R8nPAKxQEema0ZeEZICWvw"/>
 </xmi:XMI>
