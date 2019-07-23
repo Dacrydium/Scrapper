@@ -5,7 +5,7 @@
       <contents xmi:type="ecore:EAnnotation" xmi:id="_Z3ABwaxHEema0ZeEZICWvw" source="codegen">
         <details xmi:id="_Z3ABwqxHEema0ZeEZICWvw" key="codegenDirectory" value="/Scrapper/src"/>
         <details xmi:id="_Z3M2EKxHEema0ZeEZICWvw" key="observedFolders" value="/Scrapper/src"/>
-        <details xmi:id="_WY1cUKxIEema0ZeEZICWvw" key="AssociatedSourceCode" value="/Scrapper/src/Rubrique.java;3157586887/1;/Scrapper/src/ScrapperInterface.java;134950095/1;/Scrapper/src/RechercheAvancee.java;3148132174/1;/Scrapper/src/Utilisateur.java;4068411893/1;"/>
+        <details xmi:id="_WY1cUKxIEema0ZeEZICWvw" key="AssociatedSourceCode" value="/Scrapper/src/Rubrique.java;3157586887/1;/Scrapper/src/ScrapperInterface.java;3897115542/1;/Scrapper/src/RechercheAvancee.java;3148132174/1;/Scrapper/src/Utilisateur.java;1910503031/1;/Scrapper/src/tesUser.java;200468010/1;"/>
       </contents>
     </eAnnotations>
     <elementImport xmi:id="_iFfwYKxLEema0ZeEZICWvw">
@@ -50,7 +50,7 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0cby0KxIEema0ZeEZICWvw" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0cby0axIEema0ZeEZICWvw" value="*"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_HXo4kaxJEema0ZeEZICWvw" name="scrapperInterface" type="_F2u78KxIEema0ZeEZICWvw" association="_HXo4kKxJEema0ZeEZICWvw">
+      <ownedAttribute xmi:id="_HXo4kaxJEema0ZeEZICWvw" name="scrapperInterface" type="_F2u78KxIEema0ZeEZICWvw" association="_1FPY0q0EEemrCdfvwNabbA">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HXpfoKxJEema0ZeEZICWvw" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HXpfoaxJEema0ZeEZICWvw" value="1"/>
       </ownedAttribute>
@@ -94,13 +94,13 @@
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_F2u78KxIEema0ZeEZICWvw" name="ScrapperInterface">
-      <ownedAttribute xmi:id="_HXpfoqxJEema0ZeEZICWvw" name="siteWeb" type="_EfKsEKxIEema0ZeEZICWvw" association="_HXo4kKxJEema0ZeEZICWvw">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HXpfo6xJEema0ZeEZICWvw"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HXpfpKxJEema0ZeEZICWvw" value="*"/>
+      <ownedAttribute xmi:id="_HXpfoqxJEema0ZeEZICWvw" name="siteWeb" type="_EfKsEKxIEema0ZeEZICWvw" isReadOnly="true" association="_1FPY0q0EEemrCdfvwNabbA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1FPY0K0EEemrCdfvwNabbA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1FPY0a0EEemrCdfvwNabbA" value="*"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_KbRosKxJEema0ZeEZICWvw" name="utilisateur" type="_H2UOEKxIEema0ZeEZICWvw" association="_KbRBoKxJEema0ZeEZICWvw">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KbRosaxJEema0ZeEZICWvw"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KbRosqxJEema0ZeEZICWvw" value="*"/>
+      <ownedAttribute xmi:id="_nqC_AK0EEemrCdfvwNabbA" name="utilisateur" type="_H2UOEKxIEema0ZeEZICWvw" association="_KbRBoKxJEema0ZeEZICWvw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_v8iZoK0EEemrCdfvwNabbA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_v8iZoa0EEemrCdfvwNabbA" value="*"/>
       </ownedAttribute>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rgD-oKxREema0ZeEZICWvw" name="addWebsite" specification="_R8nPAKxQEema0ZeEZICWvw">
         <ownedParameter xmi:id="_rgD-oaxREema0ZeEZICWvw" direction="return">
@@ -109,7 +109,7 @@
         </ownedParameter>
         <language>java</language>
         <body>return false;&#xD;
-</body>
+   </body>
       </ownedBehavior>
       <ownedOperation xmi:id="_R8nPAKxQEema0ZeEZICWvw" name="addWebsite" method="_rgD-oKxREema0ZeEZICWvw">
         <ownedParameter xmi:id="_R8nPAaxQEema0ZeEZICWvw" direction="return">
@@ -161,6 +161,12 @@
       <ownedAttribute xmi:id="_W9L5wKz8EemrCdfvwNabbA" name="idUser">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
+      <ownedOperation xmi:id="_pmP7EK0GEemrCdfvwNabbA" name="Utilisateur">
+        <eAnnotations xmi:id="_pmP7Ea0GEemrCdfvwNabbA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details xmi:id="_pmP7Eq0GEemrCdfvwNabbA" key="create"/>
+        </eAnnotations>
+        <ownedParameter xmi:id="_pmP7E60GEemrCdfvwNabbA" type="_H2UOEKxIEema0ZeEZICWvw" direction="return"/>
+      </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_IJY7EKxIEema0ZeEZICWvw" name="Bookmark">
       <ownedAttribute xmi:id="_NWD-0axJEema0ZeEZICWvw" name="utilisateur" type="_H2UOEKxIEema0ZeEZICWvw" association="_NWD-0KxJEema0ZeEZICWvw">
@@ -174,12 +180,33 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_0caksKxIEema0ZeEZICWvw" name="contient des" memberEnd="_0cbLwKxIEema0ZeEZICWvw _0cbLw6xIEema0ZeEZICWvw"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_8IDasKxIEema0ZeEZICWvw" name="" memberEnd="_8IDasaxIEema0ZeEZICWvw _8IEBwqxIEema0ZeEZICWvw"/>
-    <packagedElement xmi:type="uml:Association" xmi:id="_HXo4kKxJEema0ZeEZICWvw" name="enregistre" memberEnd="_HXo4kaxJEema0ZeEZICWvw _HXpfoqxJEema0ZeEZICWvw"/>
-    <packagedElement xmi:type="uml:Association" xmi:id="_KbRBoKxJEema0ZeEZICWvw" name="est associé" memberEnd="_KbRosKxJEema0ZeEZICWvw _KbRos6xJEema0ZeEZICWvw"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_KbRBoKxJEema0ZeEZICWvw" name="est associé" memberEnd="_nqC_AK0EEemrCdfvwNabbA _KbRos6xJEema0ZeEZICWvw"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_NWD-0KxJEema0ZeEZICWvw" name="" memberEnd="_NWD-0axJEema0ZeEZICWvw _NWD-1KxJEema0ZeEZICWvw"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_Q262cKxJEema0ZeEZICWvw" name="fait des" memberEnd="_Q262caxJEema0ZeEZICWvw _Q262dKxJEema0ZeEZICWvw"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_T3wKMKxJEema0ZeEZICWvw" name="fait dans" memberEnd="_T3wxQKxJEema0ZeEZICWvw _T3wxQ6xJEema0ZeEZICWvw"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_W_eJEKxJEema0ZeEZICWvw" name="" memberEnd="_W_eJEaxJEema0ZeEZICWvw _W_ewIKxJEema0ZeEZICWvw"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_1FPY0q0EEemrCdfvwNabbA" name="enregistre" memberEnd="_HXo4kaxJEema0ZeEZICWvw _HXpfoqxJEema0ZeEZICWvw"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_MZLj8K0GEemrCdfvwNabbA" name="tesUser">
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MZUt4K0GEemrCdfvwNabbA" name="main" specification="_MZLj8a0GEemrCdfvwNabbA">
+        <ownedParameter xmi:id="_MZUt4a0GEemrCdfvwNabbA" name="args">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MZUt4q0GEemrCdfvwNabbA" value="*"/>
+        </ownedParameter>
+        <language>java</language>
+        <body>Set&lt;Utilisateur> listeClient = new HashSet&lt;Utilisateur>();&#xD;
+		&#xD;
+		Utilisateur Popa = new Utilisateur();&#xD;
+		listeClient.add(Popa);&#xD;
+&#xD;
+	</body>
+      </ownedBehavior>
+      <ownedOperation xmi:id="_MZLj8a0GEemrCdfvwNabbA" name="main" isStatic="true" method="_MZUt4K0GEemrCdfvwNabbA">
+        <ownedParameter xmi:id="_MZLj8q0GEemrCdfvwNabbA" name="args">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MZLj860GEemrCdfvwNabbA" value="*"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
     <profileApplication xmi:id="_Z3CeAKxHEema0ZeEZICWvw">
       <eAnnotations xmi:id="_Z3FhUKxHEema0ZeEZICWvw" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile"/>
@@ -208,4 +235,5 @@
     <body>this.listeWebsite = value;&#xD;
 </body>
   </uml:OpaqueBehavior>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_pmP7FK0GEemrCdfvwNabbA" base_Element="_pmP7EK0GEemrCdfvwNabbA"/>
 </xmi:XMI>
