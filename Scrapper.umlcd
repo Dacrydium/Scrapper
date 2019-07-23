@@ -164,6 +164,34 @@
       <cardinality xmi:id="_W_glWKxJEema0ZeEZICWvw" label="*" max="-1"/>
     </targetRole>
   </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_7ITk8Kz4EemqPYcdn4amDg" target="_FYObAKxIEema0ZeEZICWvw">
+    <modelElement href="Scrapper.uml#_7HJHUKz4EemqPYcdn4amDg"/>
+    <nameVisual xmi:id="_7ITk8az4EemqPYcdn4amDg" text=""/>
+    <sourceRole xmi:id="_7ITk8qz4EemqPYcdn4amDg" aggregationKind="NONE" name="datePublication" navigable="true">
+      <modelElement href="Scrapper.uml#_1tQvQKxNEema0ZeEZICWvw"/>
+      <visibility xmi:id="_7ITk86z4EemqPYcdn4amDg" label="+"/>
+      <cardinality xmi:id="_7ITk9Kz4EemqPYcdn4amDg" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_7ITk9az4EemqPYcdn4amDg" aggregationKind="NONE" name="">
+      <modelElement href="Scrapper.uml#_7HJHUaz4EemqPYcdn4amDg"/>
+      <visibility xmi:id="_7ITk9qz4EemqPYcdn4amDg" label="+"/>
+      <cardinality xmi:id="_7ITk96z4EemqPYcdn4amDg" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_7JWt0Kz4EemqPYcdn4amDg" target="_FA-_sKxIEema0ZeEZICWvw">
+    <modelElement href="Scrapper.uml#_7HJHUqz4EemqPYcdn4amDg"/>
+    <nameVisual xmi:id="_7JWt0az4EemqPYcdn4amDg" text=""/>
+    <sourceRole xmi:id="_7JWt0qz4EemqPYcdn4amDg" aggregationKind="NONE" name="dateLastUpdate" navigable="true">
+      <modelElement href="Scrapper.uml#_nVFlQKxMEema0ZeEZICWvw"/>
+      <visibility xmi:id="_7JWt06z4EemqPYcdn4amDg" label="+"/>
+      <cardinality xmi:id="_7JWt1Kz4EemqPYcdn4amDg" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_7JWt1az4EemqPYcdn4amDg" aggregationKind="NONE" name="">
+      <modelElement href="Scrapper.uml#_7HJHU6z4EemqPYcdn4amDg"/>
+      <visibility xmi:id="_7JWt1qz4EemqPYcdn4amDg" label="+"/>
+      <cardinality xmi:id="_7JWt16z4EemqPYcdn4amDg" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
   <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_HC2JwKxIEema0ZeEZICWvw" name="RechercheSimple" generalizations="_jtTjEKxIEema0ZeEZICWvw">
     <modelElement href="Scrapper.uml#_HC1isKxIEema0ZeEZICWvw"/>
     <visualProperties xmi:id="_HC2JwaxIEema0ZeEZICWvw" position="148.0,1211.0" size="136.0,151.0"/>
@@ -227,7 +255,7 @@
       </type>
     </attributes>
   </nodes>
-  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_FYObAKxIEema0ZeEZICWvw" name="Annonce" associationsIn="_8IF28KxIEema0ZeEZICWvw _W_glUKxJEema0ZeEZICWvw">
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_FYObAKxIEema0ZeEZICWvw" name="Annonce" associationsIn="_8IF28KxIEema0ZeEZICWvw _W_glUKxJEema0ZeEZICWvw _7ITk8Kz4EemqPYcdn4amDg">
     <modelElement href="Scrapper.uml#_FYNz8KxIEema0ZeEZICWvw"/>
     <visualProperties xmi:id="_FYObAaxIEema0ZeEZICWvw" position="1163.0,61.0" size="183.0,156.0"/>
     <visibility xmi:id="_FYObAqxIEema0ZeEZICWvw" label="+"/>
@@ -272,7 +300,7 @@
       </type>
     </attributes>
   </nodes>
-  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_FA-_sKxIEema0ZeEZICWvw" name="Rubrique" associationsIn="_0cePEKxIEema0ZeEZICWvw _T3zNgKxJEema0ZeEZICWvw" associationsOut="_8IF28KxIEema0ZeEZICWvw">
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_FA-_sKxIEema0ZeEZICWvw" name="Rubrique" associationsIn="_0cePEKxIEema0ZeEZICWvw _T3zNgKxJEema0ZeEZICWvw _7JWt0Kz4EemqPYcdn4amDg" associationsOut="_8IF28KxIEema0ZeEZICWvw">
     <modelElement href="Scrapper.uml#_FA-YoKxIEema0ZeEZICWvw"/>
     <visualProperties xmi:id="_FA-_saxIEema0ZeEZICWvw" position="1169.0,776.0" size="171.0,181.0"/>
     <visibility xmi:id="_FA-_sqxIEema0ZeEZICWvw" label="+"/>

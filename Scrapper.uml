@@ -5,7 +5,14 @@
       <contents xmi:type="ecore:EAnnotation" xmi:id="_Z3ABwaxHEema0ZeEZICWvw" source="codegen">
         <details xmi:id="_Z3ABwqxHEema0ZeEZICWvw" key="codegenDirectory" value="/Scrapper/src"/>
         <details xmi:id="_Z3M2EKxHEema0ZeEZICWvw" key="observedFolders" value="/Scrapper/src"/>
-        <details xmi:id="_WY1cUKxIEema0ZeEZICWvw" key="AssociatedSourceCode" value="/Scrapper/src/SiteWeb.java;354024230/1;/Scrapper/src/Rubrique.java;3414826132/1;/Scrapper/src/Annonce.java;3333467929/1;/Scrapper/src/ScrapperInterface.java;2607310997/1;/Scrapper/src/Recherche.java;3566819182/1;/Scrapper/src/RechercheAvancee.java;684322952/1;/Scrapper/src/RechercheSimple.java;850759238/1;/Scrapper/src/Utilisateur.java;849284765/1;/Scrapper/src/Bookmark.java;2937428546/1;"/>
+        <details xmi:id="_WY1cUKxIEema0ZeEZICWvw" key="AssociatedSourceCode" value="/Scrapper/src/SiteWeb.java;1702585449/1;/Scrapper/src/Rubrique.java;1386900342/1;/Scrapper/src/Annonce.java;1655361883/1;/Scrapper/src/ScrapperInterface.java;2747120784/1;/Scrapper/src/Recherche.java;2855995455/1;/Scrapper/src/RechercheAvancee.java;2975565955/1;/Scrapper/src/RechercheSimple.java;983184236/1;/Scrapper/src/Utilisateur.java;3493222531/1;/Scrapper/src/Bookmark.java;1506307797/1;"/>
+      </contents>
+      <contents xmi:type="ecore:EAnnotation" xmi:id="_6ISSYKz4EemqPYcdn4amDg" source="preferences">
+        <contents xmi:type="ecore:EAnnotation" xmi:id="_6ISSYaz4EemqPYcdn4amDg" source="com.yattasolutions.codegen.reverse">
+          <details xmi:id="_6ISSYqz4EemqPYcdn4amDg" key="com.yattasolutions.codegen.reverse.roundtrip.ReverseEngineerNewFiles" value="true"/>
+          <details xmi:id="_6ISSY6z4EemqPYcdn4amDg" key="com.yattasolutions.codegen.reverse.roundtrip.ReverseEngineerChangedFiles" value="true"/>
+          <details xmi:id="_6ISSZKz4EemqPYcdn4amDg" key="com.yattasolutions.codegen.reverse.roundtrip.RemoveDeletedFiles" value="true"/>
+        </contents>
       </contents>
     </eAnnotations>
     <elementImport xmi:id="_iFfwYKxLEema0ZeEZICWvw">
@@ -74,7 +81,7 @@
       <ownedAttribute xmi:id="_pipecKxLEema0ZeEZICWvw" name="url">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_nVFlQKxMEema0ZeEZICWvw" name="dateLastUpdate" type="_CJf4YKxMEema0ZeEZICWvw"/>
+      <ownedAttribute xmi:id="_nVFlQKxMEema0ZeEZICWvw" name="dateLastUpdate" type="_CJf4YKxMEema0ZeEZICWvw" association="_7HJHUqz4EemqPYcdn4amDg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_FYNz8KxIEema0ZeEZICWvw" name="Annonce">
       <ownedAttribute xmi:id="_8IDasaxIEema0ZeEZICWvw" name="rubrique" type="_FA-YoKxIEema0ZeEZICWvw" association="_8IDasKxIEema0ZeEZICWvw">
@@ -88,7 +95,7 @@
       <ownedAttribute xmi:id="_zI8_cKxNEema0ZeEZICWvw" name="titre">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_1tQvQKxNEema0ZeEZICWvw" name="datePublication" type="_CJf4YKxMEema0ZeEZICWvw"/>
+      <ownedAttribute xmi:id="_1tQvQKxNEema0ZeEZICWvw" name="datePublication" type="_CJf4YKxMEema0ZeEZICWvw" association="_7HJHUKz4EemqPYcdn4amDg"/>
       <ownedAttribute xmi:id="_4I7gcKxNEema0ZeEZICWvw" name="description">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
@@ -108,7 +115,7 @@
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
         </ownedParameter>
         <language>java</language>
-        <body>return false;&#xD;
+        <body>return false;
 </body>
       </ownedBehavior>
       <ownedOperation xmi:id="_R8nPAKxQEema0ZeEZICWvw" name="addWebsite" method="_rgD-oKxREema0ZeEZICWvw">
@@ -177,6 +184,12 @@
     <packagedElement xmi:type="uml:Association" xmi:id="_Q262cKxJEema0ZeEZICWvw" name="fait des" memberEnd="_Q262caxJEema0ZeEZICWvw _Q262dKxJEema0ZeEZICWvw"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_T3wKMKxJEema0ZeEZICWvw" name="fait dans" memberEnd="_T3wxQKxJEema0ZeEZICWvw _T3wxQ6xJEema0ZeEZICWvw"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_W_eJEKxJEema0ZeEZICWvw" name="" memberEnd="_W_eJEaxJEema0ZeEZICWvw _W_ewIKxJEema0ZeEZICWvw"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_7HJHUKz4EemqPYcdn4amDg" name="" memberEnd="_1tQvQKxNEema0ZeEZICWvw _7HJHUaz4EemqPYcdn4amDg">
+      <ownedEnd xmi:id="_7HJHUaz4EemqPYcdn4amDg" name="" type="_FYNz8KxIEema0ZeEZICWvw" association="_7HJHUKz4EemqPYcdn4amDg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_7HJHUqz4EemqPYcdn4amDg" name="" memberEnd="_nVFlQKxMEema0ZeEZICWvw _7HJHU6z4EemqPYcdn4amDg">
+      <ownedEnd xmi:id="_7HJHU6z4EemqPYcdn4amDg" name="" type="_FA-YoKxIEema0ZeEZICWvw" association="_7HJHUqz4EemqPYcdn4amDg"/>
+    </packagedElement>
     <profileApplication xmi:id="_Z3CeAKxHEema0ZeEZICWvw">
       <eAnnotations xmi:id="_Z3FhUKxHEema0ZeEZICWvw" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile"/>
