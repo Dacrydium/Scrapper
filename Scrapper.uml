@@ -5,7 +5,7 @@
       <contents xmi:type="ecore:EAnnotation" xmi:id="_Z3ABwaxHEema0ZeEZICWvw" source="codegen">
         <details xmi:id="_Z3ABwqxHEema0ZeEZICWvw" key="codegenDirectory" value="/Scrapper/src"/>
         <details xmi:id="_Z3M2EKxHEema0ZeEZICWvw" key="observedFolders" value="/Scrapper/src"/>
-        <details xmi:id="_WY1cUKxIEema0ZeEZICWvw" key="AssociatedSourceCode" value="/Scrapper/src/SiteWeb.java;354024230/1;/Scrapper/src/Rubrique.java;3414826132/1;/Scrapper/src/Annonce.java;3333467929/1;/Scrapper/src/ScrapperInterface.java;2607310997/1;/Scrapper/src/Recherche.java;3566819182/1;/Scrapper/src/RechercheAvancee.java;684322952/1;/Scrapper/src/RechercheSimple.java;850759238/1;/Scrapper/src/Utilisateur.java;849284765/1;/Scrapper/src/Bookmark.java;2937428546/1;"/>
+        <details xmi:id="_WY1cUKxIEema0ZeEZICWvw" key="AssociatedSourceCode" value="/Scrapper/src/Rubrique.java;3157586887/1;/Scrapper/src/ScrapperInterface.java;134950095/1;/Scrapper/src/RechercheAvancee.java;3148132174/1;/Scrapper/src/Utilisateur.java;4068411893/1;"/>
       </contents>
     </eAnnotations>
     <elementImport xmi:id="_iFfwYKxLEema0ZeEZICWvw">
@@ -157,6 +157,9 @@
       <ownedAttribute xmi:id="_Q262dKxJEema0ZeEZICWvw" name="recherche" type="_GHeGoKxIEema0ZeEZICWvw" association="_Q262cKxJEema0ZeEZICWvw">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Q27dgKxJEema0ZeEZICWvw"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Q27dgaxJEema0ZeEZICWvw" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_W9L5wKz8EemrCdfvwNabbA" name="idUser">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_IJY7EKxIEema0ZeEZICWvw" name="Bookmark">

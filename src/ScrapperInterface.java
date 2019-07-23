@@ -1,9 +1,7 @@
 import java.util.Set;
 import java.util.HashSet;
-import java.util.ArrayList;
 
 public class ScrapperInterface {
-   
    /**
     * <pre>
     *           1..1     enregistre     0..*
@@ -38,6 +36,6 @@ public class ScrapperInterface {
    
    public boolean addWebsite() {
       return false;
-   }
+      }
    
    }

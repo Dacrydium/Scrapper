@@ -1,18 +1,8 @@
 import java.util.Set;
 import java.util.HashSet;
-import java.time.*;
+import java.time.LocalDate;
 
 public class Rubrique {
-private LocalDate dateLastUpdate;
-   
-   public void setDateLastUpdate(LocalDate value) {
-      this.dateLastUpdate = value;
-   }
-   
-   public LocalDate getDateLastUpdate() {
-      return this.dateLastUpdate;
-   }
-   
    /**
     * <pre>
     *           1..*     contient des     1..1
@@ -70,6 +60,16 @@ private LocalDate dateLastUpdate;
    
    public String getUrl() {
       return this.url;
+   }
+   
+   private LocalDate dateLastUpdate;
+   
+   public void setDateLastUpdate(LocalDate value) {
+      this.dateLastUpdate = value;
+   }
+   
+   public LocalDate getDateLastUpdate() {
+      return this.dateLastUpdate;
    }
    
    }

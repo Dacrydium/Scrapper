@@ -1,6 +1,6 @@
 
 public class RechercheAvancee extends Recherche {
-private int prixMin;
+   private int prixMin;
    
    public void setPrixMin(int value) {
       this.prixMin = value;

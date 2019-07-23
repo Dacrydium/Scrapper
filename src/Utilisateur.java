@@ -52,4 +52,14 @@ public class Utilisateur {
       return this.recherche;
    }
    
+   private String idUser;
+   
+   public void setIdUser(String value) {
+      this.idUser = value;
+   }
+   
+   public String getIdUser() {
+      return this.idUser;
+   }
+   
    }

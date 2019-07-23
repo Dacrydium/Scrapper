@@ -346,35 +346,6 @@
       </type>
     </attributes>
   </nodes>
-  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_H2U1IKxIEema0ZeEZICWvw" name="Utilisateur" associationsOut="_KbUE8KxJEema0ZeEZICWvw _NWF0AKxJEema0ZeEZICWvw _Q29SsKxJEema0ZeEZICWvw">
-    <modelElement href="Scrapper.uml#_H2UOEKxIEema0ZeEZICWvw"/>
-    <visualProperties xmi:id="_H2U1IaxIEema0ZeEZICWvw" position="245.0,412.0" size="200.0,181.0"/>
-    <visibility xmi:id="_H2U1IqxIEema0ZeEZICWvw" label="+"/>
-    <attributes xmi:id="_KbV6IKxJEema0ZeEZICWvw" name="scrapperInterface">
-      <modelElement href="Scrapper.uml#_KbRos6xJEema0ZeEZICWvw"/>
-      <visibility xmi:id="_KbV6IaxJEema0ZeEZICWvw" label="+"/>
-      <cardinality xmi:id="_KbV6IqxJEema0ZeEZICWvw" label="1" max="1" min="1"/>
-      <type xmi:id="_KbV6I6xJEema0ZeEZICWvw" name="ScrapperInterface">
-        <modelElement href="Scrapper.uml#_F2u78KxIEema0ZeEZICWvw"/>
-      </type>
-    </attributes>
-    <attributes xmi:id="_NWHCIKxJEema0ZeEZICWvw" name="bookmark">
-      <modelElement href="Scrapper.uml#_NWD-1KxJEema0ZeEZICWvw"/>
-      <visibility xmi:id="_NWHCIaxJEema0ZeEZICWvw" label="+"/>
-      <cardinality xmi:id="_NWHCIqxJEema0ZeEZICWvw" label="1" max="1" min="1"/>
-      <type xmi:id="_NWHCI6xJEema0ZeEZICWvw" name="Bookmark">
-        <modelElement href="Scrapper.uml#_IJY7EKxIEema0ZeEZICWvw"/>
-      </type>
-    </attributes>
-    <attributes xmi:id="_Q2_H4KxJEema0ZeEZICWvw" name="recherche">
-      <modelElement href="Scrapper.uml#_Q262dKxJEema0ZeEZICWvw"/>
-      <visibility xmi:id="_Q2_H4axJEema0ZeEZICWvw" label="+"/>
-      <cardinality xmi:id="_Q2_H4qxJEema0ZeEZICWvw" label="*" max="-1"/>
-      <type xmi:id="_Q2_H46xJEema0ZeEZICWvw" name="Recherche">
-        <modelElement href="Scrapper.uml#_GHeGoKxIEema0ZeEZICWvw"/>
-      </type>
-    </attributes>
-  </nodes>
   <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_F2vjAKxIEema0ZeEZICWvw" name="ScrapperInterface" associationsIn="_KbUE8KxJEema0ZeEZICWvw" associationsOut="_HXrU0KxJEema0ZeEZICWvw">
     <modelElement href="Scrapper.uml#_F2u78KxIEema0ZeEZICWvw"/>
     <visualProperties xmi:id="_F2vjAaxIEema0ZeEZICWvw" position="742.0,419.0" size="193.0,168.0"/>
@@ -425,6 +396,43 @@
       <cardinality xmi:id="_W_iagqxJEema0ZeEZICWvw" label="*" max="-1"/>
       <type xmi:id="_W_iag6xJEema0ZeEZICWvw" name="Annonce">
         <modelElement href="Scrapper.uml#_FYNz8KxIEema0ZeEZICWvw"/>
+      </type>
+    </attributes>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_H2U1IKxIEema0ZeEZICWvw" name="Utilisateur" associationsOut="_KbUE8KxJEema0ZeEZICWvw _NWF0AKxJEema0ZeEZICWvw _Q29SsKxJEema0ZeEZICWvw">
+    <modelElement href="Scrapper.uml#_H2UOEKxIEema0ZeEZICWvw"/>
+    <visualProperties xmi:id="_H2U1IaxIEema0ZeEZICWvw" position="245.0,412.0" size="200.0,181.0"/>
+    <visibility xmi:id="_H2U1IqxIEema0ZeEZICWvw" label="+"/>
+    <attributes xmi:id="_KbV6IKxJEema0ZeEZICWvw" name="scrapperInterface">
+      <modelElement href="Scrapper.uml#_KbRos6xJEema0ZeEZICWvw"/>
+      <visibility xmi:id="_KbV6IaxJEema0ZeEZICWvw" label="+"/>
+      <cardinality xmi:id="_KbV6IqxJEema0ZeEZICWvw" label="1" max="1" min="1"/>
+      <type xmi:id="_KbV6I6xJEema0ZeEZICWvw" name="ScrapperInterface">
+        <modelElement href="Scrapper.uml#_F2u78KxIEema0ZeEZICWvw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_NWHCIKxJEema0ZeEZICWvw" name="bookmark">
+      <modelElement href="Scrapper.uml#_NWD-1KxJEema0ZeEZICWvw"/>
+      <visibility xmi:id="_NWHCIaxJEema0ZeEZICWvw" label="+"/>
+      <cardinality xmi:id="_NWHCIqxJEema0ZeEZICWvw" label="1" max="1" min="1"/>
+      <type xmi:id="_NWHCI6xJEema0ZeEZICWvw" name="Bookmark">
+        <modelElement href="Scrapper.uml#_IJY7EKxIEema0ZeEZICWvw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_Q2_H4KxJEema0ZeEZICWvw" name="recherche">
+      <modelElement href="Scrapper.uml#_Q262dKxJEema0ZeEZICWvw"/>
+      <visibility xmi:id="_Q2_H4axJEema0ZeEZICWvw" label="+"/>
+      <cardinality xmi:id="_Q2_H4qxJEema0ZeEZICWvw" label="*" max="-1"/>
+      <type xmi:id="_Q2_H46xJEema0ZeEZICWvw" name="Recherche">
+        <modelElement href="Scrapper.uml#_GHeGoKxIEema0ZeEZICWvw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_W-I8AKz8EemrCdfvwNabbA" name="idUser">
+      <modelElement href="Scrapper.uml#_W9L5wKz8EemrCdfvwNabbA"/>
+      <visibility xmi:id="_W-StAKz8EemrCdfvwNabbA" label="+"/>
+      <cardinality xmi:id="_W-StAaz8EemrCdfvwNabbA" label="1" max="1" min="1"/>
+      <type xmi:id="_W-StAqz8EemrCdfvwNabbA" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </type>
     </attributes>
   </nodes>
