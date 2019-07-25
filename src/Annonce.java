@@ -1,6 +1,6 @@
-import java.util.Set;
-import java.util.HashSet;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Annonce {
    /**
@@ -84,8 +84,15 @@ public class Annonce {
    }
    
    public String toString() {
-	   return "annonce numero : "+id+" publiée le : "+datePublication+" Titre : "+titre;
+	   return "annonce numero : "+id+" publiée le : "+datePublication+" Titre : "+titre+"\n\t"+"Description : "+description + "\n";
 	   
+   }
+   
+   public boolean addDescription(String description) {
+	   
+	   this.description=description;
+	   
+	   return true;
    }
    
    }

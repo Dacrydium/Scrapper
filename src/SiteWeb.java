@@ -1,5 +1,5 @@
-import java.util.Set;
 import java.util.HashSet;
+import java.util.Set;
 
 public class SiteWeb {
 public void addRubrique(Rubrique RubriqueToAdd) {

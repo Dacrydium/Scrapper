@@ -1,5 +1,12 @@
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
+import java.util.ArrayList;
 
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
@@ -8,13 +15,6 @@ import com.gargoylesoftware.htmlunit.html.DomElement;
 import com.gargoylesoftware.htmlunit.html.DomNodeList;
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
-
-import java.util.HashSet;
-import java.util.List;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class Rubrique {
    /**
@@ -41,14 +41,16 @@ public class Rubrique {
     *           rubrique        &gt;       annonce
     * </pre>
     */
-   private Set<Annonce> annonce;
+   public ArrayList<Annonce> listeAnnonce = new ArrayList<Annonce>();
    
-   public Set<Annonce> getAnnonce() {
-      if (this.annonce == null) {
-         this.annonce = new HashSet<Annonce>();
+   public ArrayList<Annonce> getAnnonce() {
+      if (this.listeAnnonce == null) {
+         this.listeAnnonce = new ArrayList<Annonce>();
       }
-      return this.annonce;
+      return this.listeAnnonce;
    }
+   
+   
    
    /**
     * <pre>
@@ -157,8 +159,8 @@ public class Rubrique {
 				Annonce addAnnonce = new Annonce(id, datePubli, titre);
 				
 				//Ajout dans la liste des annonces de la rubrique
-				
-				this.annonce.add(addAnnonce);
+				//System.out.println(addAnnonce);
+				this.listeAnnonce.add(addAnnonce);
 				
 				
 				
@@ -184,9 +186,27 @@ public class Rubrique {
 			for (DomElement annoncedetail : details) {
 				int indice = annoncedetail.getAttribute("id").indexOf('_');
 				String idDetail = annoncedetail.getAttribute("id").substring(indice+1);
+				
+				System.out.println(idDetail);
+				
+				System.out.println("Description : "+annoncedetail.getTextContent()); 
+				
+				
+				for(int i = 0 ; i < listeAnnonce.size(); i++ ) {
+					if(idDetail == listeAnnonce.get(i).getId()) {
+						
+						listeAnnonce.get(i).addDescription(annoncedetail.getTextContent());
+						
+					}
+					
+				}
+								
+				
 				//System.out.println("ID details:"+idDetail); 
 				//System.out.println(annoncedetail.getTextContent()); 
 			}
+			
+			System.out.println(listeAnnonce);
 			
 			
 

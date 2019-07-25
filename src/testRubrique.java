@@ -10,7 +10,8 @@ public class testRubrique {
 		Rubrique informatique = new Rubrique("https://annonces.nc/rubrique_informatique", "Rubrique_Informatique");
 		
 		informatique.majAnnonce();
-		System.out.print(informatique.getAnnonce());
+		
+		//System.out.print(informatique.getAnnonce());
 
 	}
 
