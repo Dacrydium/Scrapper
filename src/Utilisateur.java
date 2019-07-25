@@ -62,5 +62,7 @@ public class Utilisateur {
       return this.idUser;
    }
    
-   public Utilisateur() {}
+   public Utilisateur () 
+   {
+   }
    }

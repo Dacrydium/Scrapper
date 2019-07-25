@@ -2,6 +2,10 @@ import java.util.Set;
 import java.util.HashSet;
 
 public class SiteWeb {
+public void addRubrique(Rubrique RubriqueToAdd) {
+      this.rubrique.add(RubriqueToAdd);
+   }
+   
    /**
     * <pre>
     *           1..1     contient des     1..*
@@ -9,6 +13,8 @@ public class SiteWeb {
     *           siteWeb        &gt;       rubrique
     * </pre>
     */
+
+//liste des rubriques pour un siteWeb
    private Set<Rubrique> rubrique;
    
    public Set<Rubrique> getRubrique() {
@@ -43,6 +49,16 @@ public class SiteWeb {
    
    public String getUrl() {
       return this.url;
+   }
+   
+   private String nom;
+   
+   public void setNom(String value) {
+      this.nom = value;
+   }
+   
+   public String getNom() {
+      return this.nom;
    }
    
    }

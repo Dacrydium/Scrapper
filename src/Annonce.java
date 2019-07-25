@@ -66,4 +66,26 @@ public class Annonce {
       return this.description;
    }
    
+   private String id;
+   
+   public void setId(String value) {
+      this.id = value;
+   }
+   
+   public String getId() {
+      return this.id;
+   }
+   
+   public Annonce(String id,LocalDate datePublication,String titre) {
+	   
+	   this.id=id;
+	   this.datePublication=datePublication;
+	   this.titre=titre;
+   }
+   
+   public String toString() {
+	   return "annonce numero : "+id+" publiée le : "+datePublication+" Titre : "+titre;
+	   
+   }
+   
    }

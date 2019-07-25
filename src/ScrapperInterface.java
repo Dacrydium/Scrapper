@@ -1,6 +1,5 @@
 import java.util.Set;
 import java.util.HashSet;
-import java.util.ArrayList;
 
 public class ScrapperInterface {
    /**
@@ -10,6 +9,8 @@ public class ScrapperInterface {
     *           scrapperInterface        &gt;       siteWeb
     * </pre>
     */
+	
+	//Liste des Sites Web
    private Set<SiteWeb> siteWeb;
    
    public Set<SiteWeb> getSiteWeb() {
@@ -26,6 +27,8 @@ public class ScrapperInterface {
     *           scrapperInterface        &lt;       utilisateur
     * </pre>
     */
+   
+   //Liste des Utilisateurs
    private Set<Utilisateur> utilisateur;
    
    public Set<Utilisateur> getUtilisateur() {
@@ -37,6 +40,6 @@ public class ScrapperInterface {
    
    public boolean addWebsite() {
       return false;
-      }
+         }
    
    }
