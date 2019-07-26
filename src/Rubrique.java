@@ -17,95 +17,99 @@ import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 public class Rubrique {
-   /**
-    * <pre>
-    *           1..*     contient des     1..1
-    * Rubrique ------------------------- SiteWeb
-    *           rubrique        &lt;       siteWeb
-    * </pre>
-    */
-   private SiteWeb siteWeb;
-   
-   public void setSiteWeb(SiteWeb value) {
-      this.siteWeb = value;
-   }
-   
-   public SiteWeb getSiteWeb() {
-      return this.siteWeb;
-   }
-   
-   /**
-    * <pre>
-    *           1..1     0..*
-    * Rubrique ------------------------- Annonce
-    *           rubrique        &gt;       annonce
-    * </pre>
-    */
-   public ArrayList<Annonce> listeAnnonce = new ArrayList<Annonce>();
-   
-   public ArrayList<Annonce> getAnnonce() {
-      if (this.listeAnnonce == null) {
-         this.listeAnnonce = new ArrayList<Annonce>();
-      }
-      return this.listeAnnonce;
-   }
-   
-   
-   
-   /**
-    * <pre>
-    *           1..*     fait dans     0..*
-    * Rubrique ------------------------- Recherche
-    *           rubrique        &lt;       recherche
-    * </pre>
-    */
-   private Set<Recherche> recherche;
-   
-   public Set<Recherche> getRecherche() {
-      if (this.recherche == null) {
-         this.recherche = new HashSet<Recherche>();
-      }
-      return this.recherche;
-   }
-   
-   private String url;
-   
-   public void setUrl(String value) {
-      this.url = value;
-   }
-   
-   public String getUrl() {
-      return this.url;
-   }
-   
-   private LocalDate dateLastUpdate;
-   
-   public void setDateLastUpdate(LocalDate value) {
-      this.dateLastUpdate = value;
-   }
-   
-   public LocalDate getDateLastUpdate() {
-      return this.dateLastUpdate;
-   }
-   
-   private String nom;
-   
-   public void setNom(String value) {
-      this.nom = value;
-   }
-   
-   public String getNom() {
-      return this.nom;
-   }
-   
-   public Rubrique(String url,String nom) {
-	   
-	   this.url=url;
-	   this.nom=nom;
-   }
-   
-   
-   public void majAnnonce() throws FailingHttpStatusCodeException, MalformedURLException, IOException, InterruptedException {
+	/**
+	 * <pre>
+	 *           1..*     contient des     1..1
+	 * Rubrique ------------------------- SiteWeb
+	 *           rubrique        &lt;       siteWeb
+	 * </pre>
+	 */
+	private SiteWeb siteWeb;
+
+	public void setSiteWeb(SiteWeb value) {
+		this.siteWeb = value;
+	}
+
+	public SiteWeb getSiteWeb() {
+		return this.siteWeb;
+	}
+
+	/**
+	 * <pre>
+	 *           1..1     0..*
+	 * Rubrique ------------------------- Annonce
+	 *           rubrique        &gt;       annonce
+	 * </pre>
+	 */
+	public ArrayList<Annonce> listeAnnonce = new ArrayList<Annonce>();
+
+	public ArrayList<Annonce> getAnnonce() {
+		if (this.listeAnnonce == null) {
+			this.listeAnnonce = new ArrayList<Annonce>();
+		}
+		return this.listeAnnonce;
+	}
+
+
+
+	/**
+	 * <pre>
+	 *           1..*     fait dans     0..*
+	 * Rubrique ------------------------- Recherche
+	 *           rubrique        &lt;       recherche
+	 * </pre>
+	 */
+	private Set<Recherche> recherche;
+
+	public Set<Recherche> getRecherche() {
+		if (this.recherche == null) {
+			this.recherche = new HashSet<Recherche>();
+		}
+		return this.recherche;
+	}
+
+	private String url;
+
+	public void setUrl(String value) {
+		this.url = value;
+	}
+
+	public String getUrl() {
+		return this.url;
+	}
+
+	private LocalDate dateLastUpdate;
+
+	public void setDateLastUpdate(LocalDate value) {
+		this.dateLastUpdate = value;
+	}
+
+	public LocalDate getDateLastUpdate() {
+		return this.dateLastUpdate;
+	}
+
+	private String nom;
+
+	public void setNom(String value) {
+		this.nom = value;
+	}
+
+	public String getNom() {
+		return this.nom;
+	}
+
+	public Rubrique(String url,String nom) {
+
+		this.url=url;
+		this.nom=nom;
+	}
+
+
+	public void majAnnonce() throws FailingHttpStatusCodeException, MalformedURLException, IOException, InterruptedException {
+
+		if( ! listeAnnonce.isEmpty()) {
+			listeAnnonce.clear();
+		}
 
 
 		WebClient webClient = new WebClient(BrowserVersion.FIREFOX_60);
@@ -127,7 +131,7 @@ public class Rubrique {
 
 				// liste les tables
 				DomNodeList<HtmlElement> listTable = annonce.getElementsByTagName("table");
-				
+
 
 				// id + mots clés de l'annonce
 				DomElement tableHeader = listTable.get(0);
@@ -143,27 +147,28 @@ public class Rubrique {
 				//System.out.println(tableTitre);
 				DomNodeList<HtmlElement> listTD = tableTitre.getElementsByTagName("td");
 				String titre = listTD.get(1).getTextContent();
-				
+
 				//conversion String en LocalDate
 				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
 				String date = listTD.get(3).getTextContent().replaceAll("\\s", "").concat("/2019");
 				LocalDate datePubli = LocalDate.parse(date, formatter);
-				
-				
+
+
 				String type = listTD.get(0).getTextContent();
 				//System.out.println("titre annonce :"+titre+"date publication: "+date+type);
-				
-				
+
+
 				//creation d'une annonce
-				
+
 				Annonce addAnnonce = new Annonce(id, datePubli, titre);
-				
+
 				//Ajout dans la liste des annonces de la rubrique
 				//System.out.println(addAnnonce);
 				this.listeAnnonce.add(addAnnonce);
-				
-				
-				
+			//	System.out.println(addAnnonce);
+
+
+
 
 				// activation du détail de l'annonce
 				tableHeader.click();
@@ -186,29 +191,28 @@ public class Rubrique {
 			for (DomElement annoncedetail : details) {
 				int indice = annoncedetail.getAttribute("id").indexOf('_');
 				String idDetail = annoncedetail.getAttribute("id").substring(indice+1);
-				
-				System.out.println(idDetail);
-				
-				System.out.println("Description : "+annoncedetail.getTextContent()); 
-				
-				
-				for(int i = 0 ; i < listeAnnonce.size(); i++ ) {
-					if(idDetail == listeAnnonce.get(i).getId()) {
-						
-						listeAnnonce.get(i).addDescription(annoncedetail.getTextContent());
-						
+				String contenu = annoncedetail.getTextContent();
+
+				//	System.out.println(idDetail + " "+contenu);
+
+				for(int i = 0; i < listeAnnonce.size(); i++) {
+					if(listeAnnonce.get(i).getId().equals(idDetail)) {
+
+						listeAnnonce.get(i).addDescription(contenu);
 					}
-					
 				}
-								
-				
-				//System.out.println("ID details:"+idDetail); 
-				//System.out.println(annoncedetail.getTextContent()); 
+
+
 			}
-			
+
+
+			//System.out.println("ID details:"+idDetail); 
+			//System.out.println(annoncedetail.getTextContent()); 
+
+
 			System.out.println(listeAnnonce);
-			
-			
+
+
 
 
 
@@ -235,6 +239,10 @@ public class Rubrique {
 		}
 
 
+
 	}
-   
-   }
+}
+
+
+
+
