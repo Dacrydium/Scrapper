@@ -10,6 +10,8 @@ public class testRubrique {
 		Rubrique informatique = new Rubrique("https://annonces.nc/rubrique_informatique", "Rubrique_Informatique");
 		
 		informatique.majAnnonce();
+		informatique.SaveToFile();
+		
 		
 		//System.out.print(informatique.getAnnonce());
 

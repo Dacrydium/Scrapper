@@ -16,6 +16,8 @@ import com.gargoylesoftware.htmlunit.html.DomNodeList;
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
+import com.google.gson.*;;
+
 public class Rubrique {
 	/**
 	 * <pre>
@@ -138,24 +140,23 @@ public class Rubrique {
 				String hashtag = tableHeader.getAttribute("data-hashtag");
 				int indiceSeparateur = hashtag.indexOf('!');
 				String id = hashtag.substring( indiceSeparateur+1) ;
-				//System.out.println("id annonce:"+ id );
-				//System.out.println("Mots clés:"+hashtag.substring(0, indiceSeparateur-1));
+				String motsCles = hashtag.substring(0, indiceSeparateur-1);
+				
 
 
 				// titre de l'annonce			
 				DomElement tableTitre = listTable.get(1);
-				//System.out.println(tableTitre);
 				DomNodeList<HtmlElement> listTD = tableTitre.getElementsByTagName("td");
 				String titre = listTD.get(1).getTextContent();
 
-				//conversion String en LocalDate
+				//conversion String date --> LocalDate datePubli
 				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
 				String date = listTD.get(3).getTextContent().replaceAll("\\s", "").concat("/2019");
 				LocalDate datePubli = LocalDate.parse(date, formatter);
 
-
+				//Type de l'annonce [offre] ou [demande]
 				String type = listTD.get(0).getTextContent();
-				//System.out.println("titre annonce :"+titre+"date publication: "+date+type);
+				
 
 
 				//creation d'une annonce
@@ -163,25 +164,18 @@ public class Rubrique {
 				Annonce addAnnonce = new Annonce(id, datePubli, titre);
 
 				//Ajout dans la liste des annonces de la rubrique
-				//System.out.println(addAnnonce);
+				
 				this.listeAnnonce.add(addAnnonce);
-			//	System.out.println(addAnnonce);
+				//System.out.println(addAnnonce);
+			
 
 
 
 
 				// activation du détail de l'annonce
-				tableHeader.click();
+			tableHeader.click();
 
-				// details mais lent si fait au fur et à mesure
-				/*
-				 * webClient.waitForBackgroundJavaScript(1500); // attente du chargment de
-				 * l'annonce 
-				 * List<DomElement> details0 = annonce.getByXPath("//div[contains(@id, 'detail_"+id+"')]");
-				 * System.out.println("nb details:"+details0.size()); for (DomElement
-				 * annoncedetail : details0) {
-				 * System.out.println(annoncedetail.getTextContent()); }
-				 */
+			
 			}
 
 
@@ -193,12 +187,13 @@ public class Rubrique {
 				String idDetail = annoncedetail.getAttribute("id").substring(indice+1);
 				String contenu = annoncedetail.getTextContent();
 
-				//	System.out.println(idDetail + " "+contenu);
+				
 
 				for(int i = 0; i < listeAnnonce.size(); i++) {
 					if(listeAnnonce.get(i).getId().equals(idDetail)) {
 
 						listeAnnonce.get(i).addDescription(contenu);
+						System.out.print(listeAnnonce.get(i));
 					}
 				}
 
@@ -210,7 +205,7 @@ public class Rubrique {
 			//System.out.println(annoncedetail.getTextContent()); 
 
 
-			System.out.println(listeAnnonce);
+			//System.out.println(listeAnnonce);
 
 
 
@@ -240,6 +235,24 @@ public class Rubrique {
 
 
 
+	}
+	
+	public boolean SaveToFile() {
+		
+		try {
+			final String Json = new Gson().toJson(listeAnnonce);
+			System.out.print("Sauvegarde reussie !");
+			return true;
+		}catch(Exception e){ 
+			System.out.print("Erreur lors de la sauvegarde des annonces...");
+			return false;
+		}
+		
+		
+		
+		
+		
+		
 	}
 }
 
