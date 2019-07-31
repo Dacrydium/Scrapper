@@ -1,8 +1,11 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
@@ -43,12 +46,9 @@ public class Rubrique {
 	 *           rubrique        &gt;       annonce
 	 * </pre>
 	 */
-	public ArrayList<Annonce> listeAnnonce = new ArrayList<Annonce>();
+	public Hashtable<Integer, Annonce> listeAnnonce = new Hashtable<Integer,Annonce>();
 
-	public ArrayList<Annonce> getAnnonce() {
-		if (this.listeAnnonce == null) {
-			this.listeAnnonce = new ArrayList<Annonce>();
-		}
+	public Hashtable<Integer, Annonce> getAnnonce() {
 		return this.listeAnnonce;
 	}
 
@@ -140,6 +140,7 @@ public class Rubrique {
 				String hashtag = tableHeader.getAttribute("data-hashtag");
 				int indiceSeparateur = hashtag.indexOf('!');
 				String id = hashtag.substring( indiceSeparateur+1) ;
+				int id_int = Integer.parseInt(id);
 				String motsCles = hashtag.substring(0, indiceSeparateur-1);
 				
 
@@ -161,11 +162,11 @@ public class Rubrique {
 
 				//creation d'une annonce
 
-				Annonce addAnnonce = new Annonce(id, datePubli, titre);
+				Annonce addAnnonce = new Annonce(id_int, datePubli, titre);
 
 				//Ajout dans la liste des annonces de la rubrique
 				
-				this.listeAnnonce.add(addAnnonce);
+				this.listeAnnonce.put(addAnnonce.getId(), addAnnonce);
 				//System.out.println(addAnnonce);
 			
 
@@ -183,20 +184,31 @@ public class Rubrique {
 			webClient.waitForBackgroundJavaScriptStartingBefore(2000); // wait
 			List<DomElement> details = page.getByXPath("//div[contains(@id, 'detail_')]");
 			for (DomElement annoncedetail : details) {
-				int indice = annoncedetail.getAttribute("id").indexOf('_');
+			
+				listeAnnonce.get(Integer.parseInt(annoncedetail.getAttribute("id").substring(7))).addDescription(annoncedetail.getTextContent().replaceAll("\\s+", " "));
+			
+				System.out.println(listeAnnonce.get(Integer.parseInt(annoncedetail.getAttribute("id").substring(7))));
+				
+				/*int indice = annoncedetail.getAttribute("id").indexOf('_');
 				String idDetail = annoncedetail.getAttribute("id").substring(indice+1);
+				int idDetail_int = Integer.parseInt(idDetail);
 				String contenu = annoncedetail.getTextContent();
+				
+				listeAnnonce.get(idDetail_int).addDescription(contenu);
+				System.out.println(listeAnnonce.get(idDetail_int));
+			*/	
+				
 
 				
 
-				for(int i = 0; i < listeAnnonce.size(); i++) {
+	/*			for(int i = 0; i < listeAnnonce.size(); i++) {
 					if(listeAnnonce.get(i).getId().equals(idDetail)) {
 
 						listeAnnonce.get(i).addDescription(contenu);
 						System.out.print(listeAnnonce.get(i));
 					}
 				}
-
+*/
 
 			}
 
@@ -205,10 +217,11 @@ public class Rubrique {
 			//System.out.println(annoncedetail.getTextContent()); 
 
 
-			//System.out.println(listeAnnonce);
-
-
-
+		//	System.out.println(listeAnnonce);
+		//	System.out.print("Page OK");
+			
+			
+			
 
 
 
@@ -241,7 +254,11 @@ public class Rubrique {
 		
 		try {
 			final String Json = new Gson().toJson(listeAnnonce);
+			BufferedWriter out = new BufferedWriter( new FileWriter("Liste_Annonce.json"));
+			out.write(Json);
+			out.close();
 			System.out.print("Sauvegarde reussie !");
+			System.out.print(Json);
 			return true;
 		}catch(Exception e){ 
 			System.out.print("Erreur lors de la sauvegarde des annonces...");
@@ -254,6 +271,7 @@ public class Rubrique {
 		
 		
 	}
+	
 }
 
 

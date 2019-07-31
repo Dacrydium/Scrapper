@@ -66,17 +66,17 @@ public class Annonce {
       return this.description;
    }
    
-   private String id;
+   private int id;
    
-   public void setId(String value) {
+   public void setId(int value) {
       this.id = value;
    }
    
-   public String getId() {
+   public int getId() {
       return this.id;
    }
    
-   public Annonce(String id,LocalDate datePublication,String titre) {
+   public Annonce(int id,LocalDate datePublication,String titre) {
 	   
 	   this.id=id;
 	   this.datePublication=datePublication;
@@ -84,7 +84,7 @@ public class Annonce {
    }
    
    public String toString() {
-	   return "annonce numero : "+id+" publiée le : "+datePublication+" Titre : "+titre+"\n\t"+"Description : "+description + "\n";
+	   return "Annonce Numero : " +id+ " \n " +   "Publiée le : " +datePublication+ " \n" + " Titre : "+titre+"\n\t"+"Description : "+description + "\n";
 	   
    }
    
