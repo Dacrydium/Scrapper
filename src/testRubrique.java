@@ -7,11 +7,12 @@ public class testRubrique {
 
 	public static void main(String[] args) throws FailingHttpStatusCodeException, MalformedURLException, IOException, InterruptedException {
 		
-		Rubrique informatique = new Rubrique("https://annonces.nc/rubrique_informatique", "Rubrique_Informatique");
+		Rubrique informatique = new Rubrique("https://annonces.nc/rubrique_modelisme", "Rubrique_Informatique");
 		
 		informatique.majAnnonce();
 	
 		informatique.SaveToFile();
+		informatique.readFromFile("Liste_Annonce.json");
 		
 		
 		//System.out.print(informatique.getAnnonce());

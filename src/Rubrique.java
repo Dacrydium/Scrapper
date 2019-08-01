@@ -1,6 +1,9 @@
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.net.MalformedURLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -10,6 +13,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.ArrayList;
+import java.util.HashMap;
+
 
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
@@ -19,7 +24,8 @@ import com.gargoylesoftware.htmlunit.html.DomNodeList;
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
-import com.google.gson.*;;
+import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 
 public class Rubrique {
 	/**
@@ -46,9 +52,9 @@ public class Rubrique {
 	 *           rubrique        &gt;       annonce
 	 * </pre>
 	 */
-	public Hashtable<Integer, Annonce> listeAnnonce = new Hashtable<Integer,Annonce>();
+	public HashMap<Integer, Annonce> listeAnnonce = new HashMap<Integer,Annonce>();
 
-	public Hashtable<Integer, Annonce> getAnnonce() {
+	public HashMap<Integer, Annonce> getAnnonce() {
 		return this.listeAnnonce;
 	}
 
@@ -185,18 +191,18 @@ public class Rubrique {
 			List<DomElement> details = page.getByXPath("//div[contains(@id, 'detail_')]");
 			for (DomElement annoncedetail : details) {
 			
-				listeAnnonce.get(Integer.parseInt(annoncedetail.getAttribute("id").substring(7))).addDescription(annoncedetail.getTextContent().replaceAll("\\s+", " "));
+				//listeAnnonce.get(Integer.parseInt(annoncedetail.getAttribute("id").substring(7))).addDescription(annoncedetail.getTextContent().replaceAll("\\s+", " "));
 			
-				System.out.println(listeAnnonce.get(Integer.parseInt(annoncedetail.getAttribute("id").substring(7))));
+				//System.out.println(listeAnnonce.get(Integer.parseInt(annoncedetail.getAttribute("id").substring(7))));
 				
-				/*int indice = annoncedetail.getAttribute("id").indexOf('_');
+				int indice = annoncedetail.getAttribute("id").indexOf('_');
 				String idDetail = annoncedetail.getAttribute("id").substring(indice+1);
 				int idDetail_int = Integer.parseInt(idDetail);
 				String contenu = annoncedetail.getTextContent();
 				
 				listeAnnonce.get(idDetail_int).addDescription(contenu);
-				System.out.println(listeAnnonce.get(idDetail_int));
-			*/	
+			//	System.out.println(listeAnnonce.get(idDetail_int));
+				
 				
 
 				
@@ -269,6 +275,26 @@ public class Rubrique {
 		
 		
 		
+		
+	}
+	
+	
+	public boolean readFromFile(String filename) {
+		
+		try {
+			
+			BufferedReader in = new BufferedReader( new FileReader(filename));
+			String json_read = in.readLine();
+			in.close();
+			Type type = new TypeToken<HashMap<Integer, Annonce>>(){}.getType();
+	        HashMap<Integer, Annonce> clonedMap = new Gson().fromJson(json_read, type);
+			System.out.println("Lecture reussie !");
+			System.out.println(clonedMap.get(3368499).getTitre());
+			return true;
+		}catch(Exception e){ 
+			System.out.println("Erreur lors de la sauvegarde des annonces...");
+			return false;
+		}
 		
 	}
 	
