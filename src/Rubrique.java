@@ -148,7 +148,7 @@ public class Rubrique {
 				String id = hashtag.substring( indiceSeparateur+1) ;
 				int id_int = Integer.parseInt(id);
 				String motsCles = hashtag.substring(0, indiceSeparateur-1);
-				
+
 
 
 				// titre de l'annonce			
@@ -163,7 +163,7 @@ public class Rubrique {
 
 				//Type de l'annonce [offre] ou [demande]
 				String type = listTD.get(0).getTextContent();
-				
+
 
 
 				//creation d'une annonce
@@ -171,18 +171,18 @@ public class Rubrique {
 				Annonce addAnnonce = new Annonce(id_int, datePubli, titre);
 
 				//Ajout dans la liste des annonces de la rubrique
-				
+
 				this.listeAnnonce.put(addAnnonce.getId(), addAnnonce);
 				System.out.println(addAnnonce.getTitre());
-			
+
 
 
 
 
 				// activation du détail de l'annonce
-			tableHeader.click();
+				tableHeader.click();
 
-			
+
 			}
 
 
@@ -190,31 +190,50 @@ public class Rubrique {
 			webClient.waitForBackgroundJavaScriptStartingBefore(2000); // wait
 			List<DomElement> details = page.getByXPath("//div[contains(@id, 'detail_')]");
 			for (DomElement annoncedetail : details) {
-			
+
 				//listeAnnonce.get(Integer.parseInt(annoncedetail.getAttribute("id").substring(7))).addDescription(annoncedetail.getTextContent().replaceAll("\\s+", " "));
-			
+
 				//System.out.println(listeAnnonce.get(Integer.parseInt(annoncedetail.getAttribute("id").substring(7))));
-				
+
 				int indice = annoncedetail.getAttribute("id").indexOf('_');
 				String idDetail = annoncedetail.getAttribute("id").substring(indice+1);
 				int idDetail_int = Integer.parseInt(idDetail);
 				String contenu = annoncedetail.getTextContent();
-				
-				listeAnnonce.get(idDetail_int).addDescription(contenu);
-			//	System.out.println(listeAnnonce.get(idDetail_int));
-				
+
+
+
+				if(contenu.contains("Prix : ") && contenu.contains("F cfp")) {
+					int indice_Prix = contenu.indexOf("                     Prix :")+28;
+
+					int indice_f = contenu.indexOf("F cfp");
+					
+					try {
+					String Prix = contenu.substring(indice_Prix, indice_f-1).replaceAll("\\s", "");
+					int Prix_int = Integer.parseInt(Prix);
+					listeAnnonce.get(idDetail_int).setPrix(Prix_int);
+					//System.out.print(Prix_int+" "+idDetail+"\n");
+					}
+					catch(StringIndexOutOfBoundsException e) {
+						System.out.print("impossible d'enregistrer le prix pour cette annonce");
+					}
+				}
 				
 
-				
+						listeAnnonce.get(idDetail_int).addDescription(contenu);
+				//	System.out.println(listeAnnonce.get(idDetail_int));
 
-	/*			for(int i = 0; i < listeAnnonce.size(); i++) {
+
+
+
+
+				/*			for(int i = 0; i < listeAnnonce.size(); i++) {
 					if(listeAnnonce.get(i).getId().equals(idDetail)) {
 
 						listeAnnonce.get(i).addDescription(contenu);
 						System.out.print(listeAnnonce.get(i));
 					}
 				}
-*/
+				 */
 
 			}
 
@@ -223,11 +242,11 @@ public class Rubrique {
 			//System.out.println(annoncedetail.getTextContent()); 
 
 
-		//	System.out.println(listeAnnonce);
-		//	System.out.print("Page OK");
-			
-			
-			
+			//	System.out.println(listeAnnonce);
+			//	System.out.print("Page OK");
+
+
+
 
 
 
@@ -255,9 +274,9 @@ public class Rubrique {
 
 
 	}
-	
+
 	public boolean SaveToFile() {
-		
+
 		try {
 			final String Json = new Gson().toJson(listeAnnonce);
 			BufferedWriter out = new BufferedWriter( new FileWriter(this.getNom()+"_Liste_Annonce.json"));
@@ -270,31 +289,31 @@ public class Rubrique {
 			System.out.print("Erreur lors de la sauvegarde des annonces...");
 			return false;
 		}
-		
-		
-		
-		
-		
-		
+
+
+
+
+
+
 	}
-	
-	
+
+
 	public boolean readFromFile() {
-		
+
 		try {
-			
-			
-			
+
+
+
 			BufferedReader in = new BufferedReader( new FileReader(this.getNom()+"_Liste_Annonce.json"));
 			String json_read = in.readLine();
 			in.close();
-			
+
 			Type type = new TypeToken<HashMap<Integer, Annonce>>(){}.getType();
-			
-			
+
+
 			listeAnnonce.clear();
-	        listeAnnonce = new Gson().fromJson(json_read, type);
-	        
+			listeAnnonce = new Gson().fromJson(json_read, type);
+
 			System.out.println("Lecture reussie !");
 			System.out.println(listeAnnonce.get(3159703).getTitre());
 			return true;
@@ -302,9 +321,9 @@ public class Rubrique {
 			System.out.println("Erreur lors de la lecture des annonces...");
 			return false;
 		}
-		
+
 	}
-	
+
 }
 
 

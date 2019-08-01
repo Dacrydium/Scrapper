@@ -36,6 +36,16 @@ public class Annonce {
       return this.bookmark;
    }
    
+   private int Prix;
+   
+   public void setPrix(int value) {
+	   this.Prix=value;
+   }
+   
+   public int getPrix() {
+	   return this.Prix;
+   }
+   
    private String titre;
    
    public void setTitre(String value) {

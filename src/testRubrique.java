@@ -12,7 +12,7 @@ public class testRubrique {
 		informatique.majAnnonce();
 	
 		informatique.SaveToFile();
-		informatique.readFromFile();
+		//informatique.readFromFile();
 		
 		
 		//System.out.print(informatique.getAnnonce());
