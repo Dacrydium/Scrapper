@@ -9,10 +9,10 @@ public class testRubrique {
 		
 		Rubrique informatique = new Rubrique("https://annonces.nc/rubrique_modelisme", "Rubrique_Informatique");
 		
-		//informatique.majAnnonce();
+		informatique.majAnnonce();
 	
-		//informatique.SaveToFile();
-		informatique.readFromFile("Liste_Annonce.json");
+		informatique.SaveToFile();
+		informatique.readFromFile();
 		
 		
 		//System.out.print(informatique.getAnnonce());

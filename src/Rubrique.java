@@ -260,7 +260,7 @@ public class Rubrique {
 		
 		try {
 			final String Json = new Gson().toJson(listeAnnonce);
-			BufferedWriter out = new BufferedWriter( new FileWriter("Liste_Annonce.json"));
+			BufferedWriter out = new BufferedWriter( new FileWriter(this.getNom()+"_Liste_Annonce.json"));
 			out.write(Json);
 			out.close();
 			System.out.println("Sauvegarde reussie !");
@@ -279,13 +279,13 @@ public class Rubrique {
 	}
 	
 	
-	public boolean readFromFile(String filename) {
+	public boolean readFromFile() {
 		
 		try {
 			
 			
 			
-			BufferedReader in = new BufferedReader( new FileReader(filename));
+			BufferedReader in = new BufferedReader( new FileReader(this.getNom()+"_Liste_Annonce.json"));
 			String json_read = in.readLine();
 			in.close();
 			
