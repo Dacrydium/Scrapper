@@ -173,7 +173,7 @@ public class Rubrique {
 				//Ajout dans la liste des annonces de la rubrique
 				
 				this.listeAnnonce.put(addAnnonce.getId(), addAnnonce);
-				//System.out.println(addAnnonce);
+				System.out.println(addAnnonce.getTitre());
 			
 
 
@@ -263,8 +263,8 @@ public class Rubrique {
 			BufferedWriter out = new BufferedWriter( new FileWriter("Liste_Annonce.json"));
 			out.write(Json);
 			out.close();
-			System.out.print("Sauvegarde reussie !");
-			System.out.print(Json);
+			System.out.println("Sauvegarde reussie !");
+			//System.out.println(Json);
 			return true;
 		}catch(Exception e){ 
 			System.out.print("Erreur lors de la sauvegarde des annonces...");
@@ -283,16 +283,23 @@ public class Rubrique {
 		
 		try {
 			
+			
+			
 			BufferedReader in = new BufferedReader( new FileReader(filename));
 			String json_read = in.readLine();
 			in.close();
+			
 			Type type = new TypeToken<HashMap<Integer, Annonce>>(){}.getType();
-	        HashMap<Integer, Annonce> clonedMap = new Gson().fromJson(json_read, type);
+			
+			
+			listeAnnonce.clear();
+	        listeAnnonce = new Gson().fromJson(json_read, type);
+	        
 			System.out.println("Lecture reussie !");
-			System.out.println(clonedMap.get(3368499).getTitre());
+			System.out.println(listeAnnonce.get(3159703).getTitre());
 			return true;
 		}catch(Exception e){ 
-			System.out.println("Erreur lors de la sauvegarde des annonces...");
+			System.out.println("Erreur lors de la lecture des annonces...");
 			return false;
 		}
 		
