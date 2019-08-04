@@ -4,23 +4,6 @@ import java.util.Set;
 public class Recherche {
    /**
     * <pre>
-    *           0..*     fait des     1..1
-    * Recherche ------------------------- Utilisateur
-    *           recherche        &lt;       utilisateur
-    * </pre>
-    */
-   private Utilisateur utilisateur;
-   
-   public void setUtilisateur(Utilisateur value) {
-      this.utilisateur = value;
-   }
-   
-   public Utilisateur getUtilisateur() {
-      return this.utilisateur;
-   }
-   
-   /**
-    * <pre>
     *           0..*     fait dans     1..*
     * Recherche ------------------------- Rubrique
     *           recherche        &gt;       rubrique

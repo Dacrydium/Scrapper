@@ -200,7 +200,7 @@ public class Rubrique {
 				int idDetail_int = Integer.parseInt(idDetail);
 				String contenu = annoncedetail.getTextContent();
 
-
+				//Extraire le prix de l'annonce
 
 				if(contenu.contains("Prix : ") && contenu.contains("F cfp")) {
 					int indice_Prix = contenu.indexOf("                     Prix :")+28;
