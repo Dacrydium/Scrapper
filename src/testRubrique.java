@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.UUID;
 
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 
@@ -7,11 +8,25 @@ public class testRubrique {
 
 	public static void main(String[] args) throws FailingHttpStatusCodeException, MalformedURLException, IOException, InterruptedException {
 		
-		Rubrique informatique = new Rubrique("https://annonces.nc/rubrique_modelisme", "Rubrique_Informatique");
+		ScrapperInterface Interface = new ScrapperInterface();
 		
-		informatique.majAnnonce();
+		SiteWeb siteAjoute = Interface.addWebsite("https://annonces.nc","annonce.nc");
+				
+		Rubrique RubriqueAjoute = siteAjoute.addRubrique("https://annonces.nc/rubrique_modelisme", "Informatique");
+		
+		
+		int id = (int) (Math.random()*((30-0)+1));
+		System.out.print(id);
+		//Interface.readFromFile();
+		
+	//	System.out.println(Interface.getSiteWeb());
+	//	System.out.println(Interface.getSiteWeb().get(0).getRubrique().get(0).listeAnnonce);
+		
+	//	RubriqueAjoute.majAnnonce();
+		
+	//	Interface.SaveToFile();
 	
-		informatique.SaveToFile();
+		//RubriqueAjoute.SaveToFile();
 		//informatique.readFromFile();
 		
 		

@@ -1,10 +1,19 @@
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
 public class SiteWeb {
-public void addRubrique(Rubrique RubriqueToAdd) {
-      this.rubrique.add(RubriqueToAdd);
+	
+	
+public Rubrique addRubrique(String urlRubrique,String nomRubrique) {
+
+		Rubrique rubriqueToAdd = new Rubrique(urlRubrique,nomRubrique);
+	      this.getRubrique().add(rubriqueToAdd);
+	      return rubriqueToAdd;
+	
    }
+
+
    
    /**
     * <pre>
@@ -15,13 +24,13 @@ public void addRubrique(Rubrique RubriqueToAdd) {
     */
 
 //liste des rubriques pour un siteWeb
-   private Set<Rubrique> rubrique;
+   private ArrayList<Rubrique> listeRubrique;
    
-   public Set<Rubrique> getRubrique() {
-      if (this.rubrique == null) {
-         this.rubrique = new HashSet<Rubrique>();
+   public ArrayList<Rubrique> getRubrique() {
+      if (this.listeRubrique == null) {
+         this.listeRubrique = new ArrayList<Rubrique>();
       }
-      return this.rubrique;
+      return this.listeRubrique;
    }
    
    /**
@@ -41,7 +50,7 @@ public void addRubrique(Rubrique RubriqueToAdd) {
       return this.scrapperInterface;
    }
    
-   private String url;
+   protected String url;
    
    public void setUrl(String value) {
       this.url = value;
@@ -51,7 +60,7 @@ public void addRubrique(Rubrique RubriqueToAdd) {
       return this.url;
    }
    
-   private String nom;
+   protected String nom;
    
    public void setNom(String value) {
       this.nom = value;
@@ -59,6 +68,18 @@ public void addRubrique(Rubrique RubriqueToAdd) {
    
    public String getNom() {
       return this.nom;
+   }
+   
+   public SiteWeb(String url,String nom) {
+	   
+	   this.nom=nom;
+	   this.url=url;
+	   
+   }
+   
+   public String toString() {
+	   
+	   return this.getNom() + "\n";
    }
    
    }

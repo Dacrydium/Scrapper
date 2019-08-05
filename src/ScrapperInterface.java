@@ -1,5 +1,15 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 public class ScrapperInterface {
    /**
@@ -11,14 +21,17 @@ public class ScrapperInterface {
     */
 	
 	//Liste des Sites Web
-   private Set<SiteWeb> siteWeb;
+   private ArrayList<SiteWeb> listeSiteWeb;
    
-   public Set<SiteWeb> getSiteWeb() {
-      if (this.siteWeb == null) {
-         this.siteWeb = new HashSet<SiteWeb>();
+   
+   public ArrayList<SiteWeb> getSiteWeb() {
+      if (this.listeSiteWeb == null) {
+         this.listeSiteWeb = new ArrayList<SiteWeb>();
       }
-      return this.siteWeb;
+      return this.listeSiteWeb;
    }
+   
+   
    
    /**
     * <pre>
@@ -38,8 +51,62 @@ public class ScrapperInterface {
       return this.utilisateur;
    }
    
-   public boolean addWebsite() {
-      return false;
+   public SiteWeb addWebsite(String url,String nom) {
+	   SiteWeb siteToAdd = new SiteWeb(url,nom);
+	   this.getSiteWeb().add(siteToAdd);
+	   return siteToAdd;
+	   
          }
    
+   
+	public boolean SaveToFile() {
+
+		try {
+			final String Json = new Gson().toJson(listeSiteWeb);
+			BufferedWriter out = new BufferedWriter( new FileWriter("Liste_site.json"));
+			out.write(Json);
+			out.close();
+			System.out.println("Sauvegarde reussie !");
+			//System.out.println(Json);
+			return true;
+		}catch(Exception e){ 
+			System.out.print("Erreur lors de la sauvegarde des annonces...");
+			return false;
+		}
+
+
+
+
+
+
+	}
+   
+	public boolean readFromFile() {
+
+		try {
+
+
+
+			BufferedReader in = new BufferedReader( new FileReader("Liste_site.json"));
+			String json_read = in.readLine();
+			in.close();
+
+			Type type = new TypeToken<ArrayList<SiteWeb>>(){}.getType();
+
+
+			listeSiteWeb.clear();
+			listeSiteWeb = new Gson().fromJson(json_read, type);
+
+			System.out.println("Lecture reussie !");
+			System.out.println(listeSiteWeb);
+			return true;
+		}catch(Exception e){ 
+			System.out.println("Erreur lors de la lecture des annonces...");
+			return false;
+		}
+
+	}
+	
+	
+	
    }

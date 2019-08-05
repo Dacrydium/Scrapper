@@ -1,5 +1,7 @@
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 public class Recherche {
    /**
@@ -9,13 +11,20 @@ public class Recherche {
     *           recherche        &gt;       rubrique
     * </pre>
     */
-   private Set<Rubrique> rubrique;
+   private ArrayList<Rubrique> listeRubrique;
    
-   public Set<Rubrique> getRubrique() {
-      if (this.rubrique == null) {
-         this.rubrique = new HashSet<Rubrique>();
+   public boolean addRubrique(Rubrique rubriqueToAdd) {
+	   
+	   this.listeRubrique.add(rubriqueToAdd);
+	   return true;
+	   
+   }
+   
+   public ArrayList<Rubrique> getRubrique() {
+      if (this.listeRubrique == null) {
+         this.listeRubrique = new ArrayList<Rubrique>();
       }
-      return this.rubrique;
+      return this.listeRubrique;
    }
    
    private String id;
@@ -36,6 +45,17 @@ public class Recherche {
    
    public String getKeywords() {
       return this.keywords;
+   }
+   
+   public Recherche() {}
+   
+   public Recherche(String keywords) {
+	   
+	   this.id = UUID.randomUUID().toString();
+	   this.keywords=keywords;
+	   
+	   
+	   
    }
    
    }
