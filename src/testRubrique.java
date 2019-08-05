@@ -15,7 +15,7 @@ public class testRubrique {
 		Rubrique RubriqueAjoute = siteAjoute.addRubrique("https://annonces.nc/rubrique_modelisme", "Informatique");
 		
 		
-		int id = (int) (Math.random()*((30-0)+1));
+		int id = (int) (Math.random()*((4000-1000)+1));
 		System.out.print(id);
 		//Interface.readFromFile();
 		

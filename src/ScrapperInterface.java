@@ -6,6 +6,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Scanner;
 import java.util.Set;
 
 import com.google.gson.Gson;
@@ -105,6 +106,37 @@ public class ScrapperInterface {
 			return false;
 		}
 
+	}
+	
+	
+	public void menuRecherche() {
+		
+		int swValue;
+	    System.out.println("|   MENU RECHERCHE    |");
+	    System.out.println("| Options:                 |");
+	    System.out.println("|        1. Creer une recherche       |");
+	    System.out.println("|        2. Consulter mes recherches       |");
+	    System.out.println("|        3. retour           |");
+	    Scanner myObj = new Scanner(System.in);
+	    System.out.println("Choisissez puis appuyer sur ENTER");
+	    swValue = myObj.nextInt();
+
+	    // Switch construct
+	    switch (swValue) {
+	    case 1:
+	      System.out.println("Option 1 selected");
+	      break;
+	    case 2:
+	      System.out.println("Option 2 selected");
+	      break;
+	    case 3:
+	      System.out.println("Exit selected");
+	      break;
+	    default:
+	      System.out.println("Invalid selection");
+	      break; // This break is not really necessary
+	    }
+		
 	}
 	
 	
