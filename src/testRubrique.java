@@ -10,21 +10,26 @@ public class testRubrique {
 		
 		ScrapperInterface Interface = new ScrapperInterface();
 		
-		SiteWeb siteAjoute = Interface.addWebsite("https://annonces.nc","annonce.nc");
+		SiteWeb siteAjoute = Interface.addWebsite("https://automobiles.nc","auto.nc");
+		SiteWeb siteAjoute1 = Interface.addWebsite("https://annonces.nc","annonce.nc");
 				
-		Rubrique RubriqueAjoute = siteAjoute.addRubrique("https://annonces.nc/rubrique_modelisme", "Informatique");
+		Rubrique RubriqueAjoute = siteAjoute.addRubrique("https://automobiles.nc/rubrique_voiturettes", "Voiturette");
+		Rubrique RubriqueAjoute2 = siteAjoute1.addRubrique("https://annonces.nc/rubrique_modelisme", "Sex-Shop");
+		Rubrique RubriqueAjoute3 = siteAjoute1.addRubrique("https://annonces.nc/rubrique_modelisme", "Fesse");
 		
 		
-		int id = (int) (Math.random()*((4000-1000)+1));
-		System.out.print(id);
-		//Interface.readFromFile();
+		
+	//	Interface.readFromFile();
 		
 	//	System.out.println(Interface.getSiteWeb());
-	//	System.out.println(Interface.getSiteWeb().get(0).getRubrique().get(0).listeAnnonce);
+	//	System.out.println(Interface.getSiteWeb().get(2050).getRubrique().get(1427).listeAnnonce.get(3291481));
+	//	System.out.println(Interface.getSiteWeb().toString());
+		
+		Interface.createSimpleSearch();
 		
 	//	RubriqueAjoute.majAnnonce();
 		
-	//	Interface.SaveToFile();
+	//Interface.SaveToFile();
 	
 		//RubriqueAjoute.SaveToFile();
 		//informatique.readFromFile();

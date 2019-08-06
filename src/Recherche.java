@@ -11,7 +11,7 @@ public class Recherche {
     *           recherche        &gt;       rubrique
     * </pre>
     */
-   private ArrayList<Rubrique> listeRubrique;
+   protected ArrayList<Rubrique> listeRubrique;
    
    public boolean addRubrique(Rubrique rubriqueToAdd) {
 	   
@@ -27,7 +27,7 @@ public class Recherche {
       return this.listeRubrique;
    }
    
-   private String id;
+   protected String id;
    
    public void setId(String value) {
       this.id = value;
@@ -37,7 +37,7 @@ public class Recherche {
       return this.id;
    }
    
-   private String keywords;
+   protected String keywords;
    
    public void setKeywords(String value) {
       this.keywords = value;

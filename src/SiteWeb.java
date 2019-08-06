@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -8,7 +9,7 @@ public class SiteWeb {
 public Rubrique addRubrique(String urlRubrique,String nomRubrique) {
 
 		Rubrique rubriqueToAdd = new Rubrique(urlRubrique,nomRubrique);
-	      this.getRubrique().add(rubriqueToAdd);
+	      this.getRubrique().put(rubriqueToAdd.getId(),rubriqueToAdd);
 	      return rubriqueToAdd;
 	
    }
@@ -24,11 +25,11 @@ public Rubrique addRubrique(String urlRubrique,String nomRubrique) {
     */
 
 //liste des rubriques pour un siteWeb
-   private ArrayList<Rubrique> listeRubrique;
+   private HashMap<Integer,Rubrique> listeRubrique;
    
-   public ArrayList<Rubrique> getRubrique() {
+   public HashMap<Integer,Rubrique> getRubrique() {
       if (this.listeRubrique == null) {
-         this.listeRubrique = new ArrayList<Rubrique>();
+         this.listeRubrique = new HashMap<Integer,Rubrique>();
       }
       return this.listeRubrique;
    }
@@ -60,6 +61,16 @@ public Rubrique addRubrique(String urlRubrique,String nomRubrique) {
       return this.url;
    }
    
+   protected int id;
+   
+   public void setId(int value) {
+	   this.id=value;
+   }
+   
+   public int getId() {
+	   return this.id;
+   }
+   
    protected String nom;
    
    public void setNom(String value) {
@@ -74,6 +85,7 @@ public Rubrique addRubrique(String urlRubrique,String nomRubrique) {
 	   
 	   this.nom=nom;
 	   this.url=url;
+	   this.id=(int)(Math.random() * ((4000 - 0001) + 1)) + 0001;
 	   
    }
    

@@ -105,11 +105,22 @@ public class Rubrique {
 	public String getNom() {
 		return this.nom;
 	}
+	
+	private int id;
+
+	public void setId(int value) {
+		this.id = value;
+	}
+
+	public int getId() {
+		return this.id;
+	}
 
 	public Rubrique(String url,String nom) {
 
 		this.url=url;
 		this.nom=nom;
+		this.id=(int)(Math.random() * ((4000 - 0001) + 1)) + 0001;
 	}
 
 
@@ -322,6 +333,10 @@ public class Rubrique {
 			return false;
 		}
 
+	}
+	
+	public String toString() {
+		return this.nom+"\n";
 	}
 
 }
