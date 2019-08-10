@@ -258,6 +258,8 @@ public class ScrapperInterface {
 
 
 		RechercheSimple newRecherSimple = new RechercheSimple(this.getSiteWeb().get(choixSite),newListe,keywords);
+		//Rajout de la recherche cree dans la liste des recherches de l'utilisateur
+		listeUtilisateur.get(UtilisateurConnecte.getUsername()).getRecherche().put(newRecherSimple.id, newRecherSimple);
 
 
 
@@ -325,7 +327,8 @@ public class ScrapperInterface {
 
 		RechercheAvancee newRecherAvancee = new RechercheAvancee(this.getSiteWeb().get(choixSite),newListe,keywords,prixMin,prixMax);
 
-		printHashMap(newRecherAvancee.run());
+		
+		listeUtilisateur.get(UtilisateurConnecte.getUsername()).getRecherche().put(newRecherAvancee.id, newRecherAvancee);
 
 
 

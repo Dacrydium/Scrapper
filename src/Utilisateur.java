@@ -48,13 +48,13 @@ public class Utilisateur {
 	 *           utilisateur        &gt;       recherche
 	 * </pre>
 	 */
-	private HashMap<Integer,Recherche> recherche = new HashMap<Integer,Recherche>();
+	private HashMap<Integer,Recherche> listeRecherche = new HashMap<Integer,Recherche>();
 
 	public HashMap<Integer,Recherche> getRecherche() {
-		if (this.recherche == null) {
-			this.recherche = new HashMap<Integer,Recherche>();
+		if (this.listeRecherche == null) {
+			this.listeRecherche = new HashMap<Integer,Recherche>();
 		}
-		return this.recherche;
+		return this.listeRecherche;
 	}
 
 	public Utilisateur (String username,String password){
