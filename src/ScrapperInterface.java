@@ -2,7 +2,9 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.reflect.Type;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -11,6 +13,7 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -155,7 +158,7 @@ public class ScrapperInterface {
 
 	}
 
-	public void createSimpleSearch() throws InterruptedException {
+	public void createSimpleSearch() throws InterruptedException, FailingHttpStatusCodeException, MalformedURLException, IOException {
 		System.out.println("|	RECHERCHE SIMPLE	|");
 		System.out.println("Liste des sites disponibles :");
 		printHashMap(getSiteWeb());
@@ -169,12 +172,112 @@ public class ScrapperInterface {
 			createSimpleSearch();
 		}
 
-		TimeUnit.SECONDS.sleep(2);
+		TimeUnit.SECONDS.sleep(1);
 		clearConsole();
 		System.out.println("Liste des rubriques disponibles :");
 		printHashMap(getSiteWeb().get(choixSite).getRubrique());
+
+		Scanner in = new Scanner(System.in).useDelimiter("[,\\s+]");
+		System.out.println("Saisissez les rubriques dans lesquelles effectuer les recherche en les separant par des virgules pui appuyer sur ENTER");
+		ArrayList<Rubrique> newListe = new ArrayList<Rubrique>();
+
+
+		while (in.hasNextInt()) {
+			if (in.hasNextInt())
+				newListe.add(this.listeSiteWeb.get(choixSite).getRubrique().get(in.nextInt()));
+			else 
+				in.next();
+
+		}
+
+		Scanner scanKeywords = new Scanner(System.in);
+		System.out.println("Saisissez les termes de votre recherche en les separant par des virgules puis appuyer sur ENTER");
+
+
+		String scanKeywordsString = scanKeywords.nextLine();
+		String[] newKeywords = scanKeywordsString.split(",");
+		ArrayList<String> keywords = new ArrayList<String>();
+
+		for(int i = 0; i<newKeywords.length;i++) {
+			keywords.add(newKeywords[i]);
+		}
+
+
+
+		RechercheSimple newRecherSimple = new RechercheSimple(this.getSiteWeb().get(choixSite),newListe,keywords);
 		
 		
+
+
+
+
+	}
+	
+	
+	public void createAdvancedSearch() throws InterruptedException, FailingHttpStatusCodeException, MalformedURLException, IOException {
+		System.out.println("|	RECHERCHE AVANCEE	|");
+		System.out.println("Liste des sites disponibles :");
+		printHashMap(getSiteWeb());
+		Scanner myObj = new Scanner(System.in);
+		System.out.println("Selectionnez un site et appuyer sur ENTER");
+		int choixSite = 1;
+		try {
+			choixSite = myObj.nextInt();
+			System.out.println("Vous avez selectionnez : "+this.getSiteWeb().get(choixSite).nom);
+		}catch(InputMismatchException | NullPointerException e) {
+			createSimpleSearch();
+		}
+
+		TimeUnit.SECONDS.sleep(1);
+		clearConsole();
+		System.out.println("Liste des rubriques disponibles :");
+		printHashMap(getSiteWeb().get(choixSite).getRubrique());
+
+		Scanner in = new Scanner(System.in).useDelimiter("[,\\s+]");
+		System.out.println("Saisissez les rubriques dans lesquelles effectuer les recherche en les separant par des virgules pui appuyer sur ENTER");
+		ArrayList<Rubrique> newListe = new ArrayList<Rubrique>();
+
+
+		while (in.hasNextInt()) {
+			if (in.hasNextInt())
+				newListe.add(this.listeSiteWeb.get(choixSite).getRubrique().get(in.nextInt()));
+			else 
+				in.next();
+
+		}
+
+		Scanner scanKeywords = new Scanner(System.in);
+		System.out.println("Saisissez les termes de votre recherche en les separant par des virgules puis appuyer sur ENTER");
+
+
+		String scanKeywordsString = scanKeywords.nextLine();
+		String[] newKeywords = scanKeywordsString.split(",");
+		ArrayList<String> keywords = new ArrayList<String>();
+
+		for(int i = 0; i<newKeywords.length;i++) {
+			keywords.add(newKeywords[i]);
+		}
+		
+		
+		Scanner scanPrixMin = new Scanner(System.in);
+		System.out.println("Saisissez le prix minimum puis appuyer sur ENTER");
+		int prixMin = scanPrixMin.nextInt();
+		
+		
+		Scanner scanPrixMax = new Scanner(System.in);
+		System.out.println("Saisissez le prix Maximum pus appuyer sur ENTER");
+		int prixMax = scanPrixMax.nextInt();
+		
+
+
+		RechercheAvancee newRecherAvancee = new RechercheAvancee(this.getSiteWeb().get(choixSite),newListe,keywords,prixMin,prixMax);
+		
+		printHashMap(newRecherAvancee.run());
+		
+		
+
+
+
 
 	}
 

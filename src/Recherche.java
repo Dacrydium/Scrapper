@@ -37,22 +37,34 @@ public class Recherche {
       return this.id;
    }
    
-   protected String keywords;
+   protected ArrayList<String> keywords;
    
    public void setKeywords(String value) {
-      this.keywords = value;
+      this.keywords.add(value) ;
    }
    
-   public String getKeywords() {
+   public ArrayList<String> getKeywords() {
       return this.keywords;
+   }
+   
+   protected SiteWeb site;
+   
+   public void setSite(SiteWeb site) {
+	   this.site=site;
+   }
+   
+   public SiteWeb getSite() {
+	   return this.site;
    }
    
    public Recherche() {}
    
-   public Recherche(String keywords) {
+   public Recherche(SiteWeb site, ArrayList<Rubrique> rubrique,ArrayList<String> keywords) {
 	   
 	   this.id = UUID.randomUUID().toString();
 	   this.keywords=keywords;
+	   this.site=site;
+	   this.listeRubrique=rubrique;
 	   
 	   
 	   

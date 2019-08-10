@@ -25,7 +25,8 @@ public class testRubrique {
 	//	System.out.println(Interface.getSiteWeb().get(2050).getRubrique().get(1427).listeAnnonce.get(3291481));
 	//	System.out.println(Interface.getSiteWeb().toString());
 		
-		Interface.createSimpleSearch();
+		//RubriqueAjoute.majAnnonce();
+		Interface.createAdvancedSearch();
 		
 	//	RubriqueAjoute.majAnnonce();
 		

@@ -105,7 +105,7 @@ public class Rubrique {
 	public String getNom() {
 		return this.nom;
 	}
-	
+
 	private int id;
 
 	public void setId(int value) {
@@ -121,6 +121,7 @@ public class Rubrique {
 		this.url=url;
 		this.nom=nom;
 		this.id=(int)(Math.random() * ((4000 - 0001) + 1)) + 0001;
+		this.dateLastUpdate = LocalDate.of(1900, 01, 01);
 	}
 
 
@@ -217,20 +218,20 @@ public class Rubrique {
 					int indice_Prix = contenu.indexOf("                     Prix :")+28;
 
 					int indice_f = contenu.indexOf("F cfp");
-					
+
 					try {
-					String Prix = contenu.substring(indice_Prix, indice_f-1).replaceAll("\\s", "");
-					int Prix_int = Integer.parseInt(Prix);
-					listeAnnonce.get(idDetail_int).setPrix(Prix_int);
-					//System.out.print(Prix_int+" "+idDetail+"\n");
+						String Prix = contenu.substring(indice_Prix, indice_f-1).replaceAll("\\s", "");
+						int Prix_int = Integer.parseInt(Prix);
+						listeAnnonce.get(idDetail_int).setPrix(Prix_int);
+						//System.out.print(Prix_int+" "+idDetail+"\n");
 					}
 					catch(StringIndexOutOfBoundsException e) {
 						System.out.print("impossible d'enregistrer le prix pour cette annonce");
 					}
 				}
-				
 
-						listeAnnonce.get(idDetail_int).addDescription(contenu);
+
+				listeAnnonce.get(idDetail_int).addDescription(contenu);
 				//	System.out.println(listeAnnonce.get(idDetail_int));
 
 
@@ -282,7 +283,7 @@ public class Rubrique {
 
 		}
 
-
+		setDateLastUpdate(LocalDate.now());
 
 	}
 
@@ -334,7 +335,7 @@ public class Rubrique {
 		}
 
 	}
-	
+
 	public String toString() {
 		return this.nom+"\n";
 	}
