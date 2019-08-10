@@ -27,13 +27,13 @@ public class Recherche {
       return this.listeRubrique;
    }
    
-   protected String id;
+   protected int id;
    
-   public void setId(String value) {
+   public void setId(int value) {
       this.id = value;
    }
    
-   public String getId() {
+   public int getId() {
       return this.id;
    }
    
@@ -61,7 +61,7 @@ public class Recherche {
    
    public Recherche(SiteWeb site, ArrayList<Rubrique> rubrique,ArrayList<String> keywords) {
 	   
-	   this.id = UUID.randomUUID().toString();
+	   this.id = (int)(Math.random() * ((4000 - 0001) + 1)) + 0001;;
 	   this.keywords=keywords;
 	   this.site=site;
 	   this.listeRubrique=rubrique;

@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,14 +31,14 @@ public class Utilisateur {
 	 *           utilisateur        &gt;       bookmark
 	 * </pre>
 	 */
-	private Bookmark bookmark;
+	private Bookmark listeBookmark;
 
-	public void setBookmark(Bookmark value) {
-		this.bookmark = value;
+	public void setListeBookmark(Bookmark value) {
+		this.listeBookmark = value;
 	}
 
-	public Bookmark getBookmark() {
-		return this.bookmark;
+	public Bookmark getListeBookmark() {
+		return this.listeBookmark;
 	}
 
 	/**
@@ -47,32 +48,25 @@ public class Utilisateur {
 	 *           utilisateur        &gt;       recherche
 	 * </pre>
 	 */
-	private Set<Recherche> recherche;
+	private HashMap<Integer,Recherche> recherche = new HashMap<Integer,Recherche>();
 
-	public Set<Recherche> getRecherche() {
+	public HashMap<Integer,Recherche> getRecherche() {
 		if (this.recherche == null) {
-			this.recherche = new HashSet<Recherche>();
+			this.recherche = new HashMap<Integer,Recherche>();
 		}
 		return this.recherche;
 	}
 
-	private String idUser;
-
-	public void setIdUser(String value) {
-		this.idUser = value;
-	}
-
-	public String getIdUser() {
-		return this.idUser;
-	}
-
-	public Utilisateur () 
-	{
+	public Utilisateur (String username,String password){
+		this.username=username;
+		this.password=password;
+		this.listeBookmark=new Bookmark();
+		
 	}
 	
-	public boolean register() {
-		
-		System.out.println("");
-		return true;
+	public String toString() {
+		return username;
 	}
+	
+	
 }

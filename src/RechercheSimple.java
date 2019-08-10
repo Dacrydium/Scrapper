@@ -14,7 +14,7 @@ public class RechercheSimple extends Recherche {
 
 	public RechercheSimple(SiteWeb site, ArrayList<Rubrique> rubrique,ArrayList<String> keywords) {
 
-		this.id = UUID.randomUUID().toString();
+		this.id = (int)(Math.random() * ((4000 - 0001) + 1)) + 0001;
 		this.keywords=keywords;
 		this.site=site;
 		this.listeRubrique=rubrique;

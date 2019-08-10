@@ -10,13 +10,8 @@ public class testRubrique {
 		
 		ScrapperInterface Interface = new ScrapperInterface();
 		
-		SiteWeb siteAjoute = Interface.addWebsite("https://automobiles.nc","auto.nc");
-		SiteWeb siteAjoute1 = Interface.addWebsite("https://annonces.nc","annonce.nc");
-				
-		Rubrique RubriqueAjoute = siteAjoute.addRubrique("https://automobiles.nc/rubrique_voiturettes", "Voiturette");
-		Rubrique RubriqueAjoute2 = siteAjoute1.addRubrique("https://annonces.nc/rubrique_modelisme", "Sex-Shop");
-		Rubrique RubriqueAjoute3 = siteAjoute1.addRubrique("https://annonces.nc/rubrique_modelisme", "Fesse");
-		
+
+
 		
 		
 	//	Interface.readFromFile();
@@ -26,7 +21,8 @@ public class testRubrique {
 	//	System.out.println(Interface.getSiteWeb().toString());
 		
 		//RubriqueAjoute.majAnnonce();
-		Interface.createAdvancedSearch();
+		Interface.menuConnexion();
+		
 		
 	//	RubriqueAjoute.majAnnonce();
 		
