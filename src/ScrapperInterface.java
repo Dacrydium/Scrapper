@@ -384,7 +384,7 @@ public class ScrapperInterface {
 			login();
 		}
 
-		Utilisateur userConnected = listeUtilisateur.get(username);
+		UtilisateurConnecte = listeUtilisateur.get(username);
 		System.out.println("Bienvenue "+ UtilisateurConnecte);
 		menuPrincipal();
 		//Menu Accueil Principal
