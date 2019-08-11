@@ -5,7 +5,12 @@ import java.util.Set;
 
 public class SiteWeb {
 	
-	
+/**
+ * ajoute une rubrique dans la liste des rubrique du site web	
+ * @param urlRubrique url de la rubrique a ajouter
+ * @param nomRubrique nom de la rubrique a ajouter
+ * @return la rubrique qui vient d'etre ajoutée
+ */
 public Rubrique addRubrique(String urlRubrique,String nomRubrique) {
 
 		Rubrique rubriqueToAdd = new Rubrique(urlRubrique,nomRubrique);
@@ -24,7 +29,9 @@ public Rubrique addRubrique(String urlRubrique,String nomRubrique) {
     * </pre>
     */
 
-//liste des rubriques pour un siteWeb
+/**
+ * liste des rubriques du site web
+ */
    private HashMap<Integer,Rubrique> listeRubrique;
    
    public HashMap<Integer,Rubrique> getRubrique() {
@@ -50,7 +57,9 @@ public Rubrique addRubrique(String urlRubrique,String nomRubrique) {
    public ScrapperInterface getScrapperInterface() {
       return this.scrapperInterface;
    }
-   
+   /**
+    * url du site web
+    */
    protected String url;
    
    public void setUrl(String value) {
@@ -60,7 +69,9 @@ public Rubrique addRubrique(String urlRubrique,String nomRubrique) {
    public String getUrl() {
       return this.url;
    }
-   
+   /**
+    * id du site web
+    */
    protected int id;
    
    public void setId(int value) {
@@ -70,7 +81,9 @@ public Rubrique addRubrique(String urlRubrique,String nomRubrique) {
    public int getId() {
 	   return this.id;
    }
-   
+   /**
+    * nom du site
+    */
    protected String nom;
    
    public void setNom(String value) {
@@ -80,7 +93,11 @@ public Rubrique addRubrique(String urlRubrique,String nomRubrique) {
    public String getNom() {
       return this.nom;
    }
-   
+   /**
+    * 
+    * @param url url du site a creer
+    * @param nom nom du site a creer
+    */
    public SiteWeb(String url,String nom) {
 	   
 	   this.nom=nom;

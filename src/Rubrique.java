@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.net.MalformedURLException;
+import java.sql.Savepoint;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
@@ -75,7 +76,9 @@ public class Rubrique {
 		}
 		return this.recherche;
 	}
-
+/**
+ * url de la rubrique
+ */
 	private String url;
 
 	public void setUrl(String value) {
@@ -85,7 +88,9 @@ public class Rubrique {
 	public String getUrl() {
 		return this.url;
 	}
-
+/**
+ * date de la derniere mis a jour de la rubrique
+ */
 	private LocalDate dateLastUpdate;
 
 	public void setDateLastUpdate(LocalDate value) {
@@ -95,7 +100,9 @@ public class Rubrique {
 	public LocalDate getDateLastUpdate() {
 		return this.dateLastUpdate;
 	}
-
+/**
+ * nom de la rurique
+ */
 	private String nom;
 
 	public void setNom(String value) {
@@ -105,7 +112,9 @@ public class Rubrique {
 	public String getNom() {
 		return this.nom;
 	}
-
+/** 
+ * id de la rubrique
+ * */
 	private int id;
 
 	public void setId(int value) {
@@ -115,7 +124,11 @@ public class Rubrique {
 	public int getId() {
 		return this.id;
 	}
-
+/**
+ * 
+ * @param url url de la rubrique
+ * @param nom nom de la rubrique
+ */
 	public Rubrique(String url,String nom) {
 
 		this.url=url;
@@ -124,9 +137,15 @@ public class Rubrique {
 		this.dateLastUpdate = LocalDate.of(1900, 01, 01);
 	}
 
-
+/**
+ * Scrappe le contenu de la rubrique sur internet.
+ * @throws FailingHttpStatusCodeException
+ * @throws MalformedURLException
+ * @throws IOException
+ * @throws InterruptedException
+ */
 	public void majAnnonce() throws FailingHttpStatusCodeException, MalformedURLException, IOException, InterruptedException {
-
+		System.out.println("La rubrique a �t� mise il y a plus d'un jour, Une mise a jour va �tre lanc�e \n Mise a jour en cour...");
 		if( ! listeAnnonce.isEmpty()) {
 			listeAnnonce.clear();
 		}
@@ -144,16 +163,19 @@ public class Rubrique {
 		List<DomElement> annonces = page.getByXPath("//span[contains(@id, 'header_annonce_')]");
 		int numpage=1;
 
-
 		while( annonces != null && annonces.size()>0)
 		{
 			for (DomElement annonce : annonces) {
 
-				// liste les tables
+				/**
+				 * liste les tables
+				 */
 				DomNodeList<HtmlElement> listTable = annonce.getElementsByTagName("table");
 
 
-				// id + mots clés de l'annonce
+				/**
+				 * recupere l'id et les mots cle de l'annonce
+				 */
 				DomElement tableHeader = listTable.get(0);
 				String hashtag = tableHeader.getAttribute("data-hashtag");
 				int indiceSeparateur = hashtag.indexOf('!');
@@ -163,57 +185,61 @@ public class Rubrique {
 
 
 
-				// titre de l'annonce			
+				/**
+				 * recupere le titre de l'annonce		
+				 */
 				DomElement tableTitre = listTable.get(1);
 				DomNodeList<HtmlElement> listTD = tableTitre.getElementsByTagName("td");
 				String titre = listTD.get(1).getTextContent();
 
-				//conversion String date --> LocalDate datePubli
+				/**
+				 * conversion String date --> LocalDate datePubli
+				 */
 				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
 				String date = listTD.get(3).getTextContent().replaceAll("\\s", "").concat("/2019");
 				LocalDate datePubli = LocalDate.parse(date, formatter);
 
-				//Type de l'annonce [offre] ou [demande]
+				/**
+				 * Type de l'annonce [offre] ou [demande]
+				 */
 				String type = listTD.get(0).getTextContent();
 
 
 
-				//creation d'une annonce
-
+				/**
+				 * cr�tion d'une annonce
+				 */
 				Annonce addAnnonce = new Annonce(id_int, datePubli, titre);
 
-				//Ajout dans la liste des annonces de la rubrique
-
+				/**
+				 * Ajout dans la liste des annonces de la rubrique
+				 */
 				this.listeAnnonce.put(addAnnonce.getId(), addAnnonce);
-				System.out.println(addAnnonce.getTitre());
-
-
-
-
-
-				// activation du détail de l'annonce
+				
+				/**
+				 *  activation du détail de l'annonce
+				 */
 				tableHeader.click();
 
 
 			}
 
 
-			// Récupération de tous les contenus détaillés 
+			/**
+			 *  Récupération de tous les contenus détaillés 
+			 */
 			webClient.waitForBackgroundJavaScriptStartingBefore(2000); // wait
 			List<DomElement> details = page.getByXPath("//div[contains(@id, 'detail_')]");
 			for (DomElement annoncedetail : details) {
-
-				//listeAnnonce.get(Integer.parseInt(annoncedetail.getAttribute("id").substring(7))).addDescription(annoncedetail.getTextContent().replaceAll("\\s+", " "));
-
-				//System.out.println(listeAnnonce.get(Integer.parseInt(annoncedetail.getAttribute("id").substring(7))));
 
 				int indice = annoncedetail.getAttribute("id").indexOf('_');
 				String idDetail = annoncedetail.getAttribute("id").substring(indice+1);
 				int idDetail_int = Integer.parseInt(idDetail);
 				String contenu = annoncedetail.getTextContent();
 
-				//Extraire le prix de l'annonce
-
+				/**
+				 * Extraire le prix de l'annonce
+				 */
 				if(contenu.contains("Prix : ") && contenu.contains("F cfp")) {
 					int indice_Prix = contenu.indexOf("                     Prix :")+28;
 
@@ -223,7 +249,7 @@ public class Rubrique {
 						String Prix = contenu.substring(indice_Prix, indice_f-1).replaceAll("\\s", "");
 						int Prix_int = Integer.parseInt(Prix);
 						listeAnnonce.get(idDetail_int).setPrix(Prix_int);
-						//System.out.print(Prix_int+" "+idDetail+"\n");
+					
 					}
 					catch(StringIndexOutOfBoundsException e) {
 						System.out.print("impossible d'enregistrer le prix pour cette annonce");
@@ -232,37 +258,15 @@ public class Rubrique {
 
 
 				listeAnnonce.get(idDetail_int).addDescription(contenu);
-				//	System.out.println(listeAnnonce.get(idDetail_int));
+				
 
-
-
-
-
-				/*			for(int i = 0; i < listeAnnonce.size(); i++) {
-					if(listeAnnonce.get(i).getId().equals(idDetail)) {
-
-						listeAnnonce.get(i).addDescription(contenu);
-						System.out.print(listeAnnonce.get(i));
-					}
-				}
-				 */
 
 			}
 
 
-			//System.out.println("ID details:"+idDetail); 
-			//System.out.println(annoncedetail.getTextContent()); 
-
-
-			//	System.out.println(listeAnnonce);
-			//	System.out.print("Page OK");
-
-
-
-
-
-
-			// accès à la page suivante
+			/**
+			 * accès à la page suivante
+			 */
 			List<DomElement> currentPage = page.getByXPath("//span[contains(@class, 'paggination_tableau')]");
 			if( ! currentPage.isEmpty())
 			{
@@ -283,58 +287,15 @@ public class Rubrique {
 
 		}
 
+		/**
+		 * actualise la date de derniere mis a jour de la rubrique
+		 */
 		setDateLastUpdate(LocalDate.now());
-
-	}
-
-	public boolean SaveToFile() {
-
-		try {
-			final String Json = new Gson().toJson(listeAnnonce);
-			BufferedWriter out = new BufferedWriter( new FileWriter(this.getNom()+"_Liste_Annonce.json"));
-			out.write(Json);
-			out.close();
-			System.out.println("Sauvegarde reussie !");
-			//System.out.println(Json);
-			return true;
-		}catch(Exception e){ 
-			System.out.print("Erreur lors de la sauvegarde des annonces...");
-			return false;
-		}
-
-
-
-
-
+		
 
 	}
 
 
-	public boolean readFromFile() {
-
-		try {
-
-
-
-			BufferedReader in = new BufferedReader( new FileReader(this.getNom()+"_Liste_Annonce.json"));
-			String json_read = in.readLine();
-			in.close();
-
-			Type type = new TypeToken<HashMap<Integer, Annonce>>(){}.getType();
-
-
-			listeAnnonce.clear();
-			listeAnnonce = new Gson().fromJson(json_read, type);
-
-			System.out.println("Lecture reussie !");
-			System.out.println(listeAnnonce.get(3159703).getTitre());
-			return true;
-		}catch(Exception e){ 
-			System.out.println("Erreur lors de la lecture des annonces...");
-			return false;
-		}
-
-	}
 
 	public String toString() {
 		return this.nom+"\n";

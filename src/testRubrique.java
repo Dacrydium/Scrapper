@@ -21,6 +21,7 @@ public class testRubrique {
 	//	System.out.println(Interface.getSiteWeb().toString());
 		
 		//RubriqueAjoute.majAnnonce();
+		Interface.readFromFile();
 		Interface.menuConnexion();
 		
 		
